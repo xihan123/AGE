@@ -1,49 +1,49 @@
 {
     "launch": {
         "pic": [
-            "https://gitee.com/xihan123/AGE/raw/master/splash/1.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/2.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/3.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/4.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/5.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/6.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/7.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/8.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/9.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/10.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/11.png",
-            "https://gitee.com/xihan123/AGE/raw/master/splash/12.png"
+            "https://gitee.com/xihan123/AGE/raw/main/splash/1.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/2.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/3.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/4.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/5.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/6.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/7.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/8.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/9.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/10.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/11.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/12.png"
 
         ],
         "url": ""
     },
-    "appversion": "1.0.3",
+    "appversion": "1.0.4",
     "url": "https://web.age-spa.com:8443/#/",
     "about": "https://xihan.rthe.net/about.html",
     "nav": [
         {
             "title": "首页",
-            "icon": "https://gitee.com/xihan123/AGE/raw/master/splash/index.png",
+            "icon": "https://gitee.com/xihan123/AGE/raw/main/splash/index.png",
             "url": "https://web.age-spa.com:8443/#/"
         },
         {
             "title": "目录",
-            "icon": "https://gitee.com/xihan123/AGE/raw/master/splash/catalog.png",
+            "icon": "https://gitee.com/xihan123/AGE/raw/main/splash/catalog.png",
             "url": "https://web.age-spa.com:8443/#/catalog"
         },
         {
             "title": "推荐",
-            "icon": "https://gitee.com/xihan123/AGE/raw/master/splash/recommend.png",
+            "icon": "https://gitee.com/xihan123/AGE/raw/main/splash/recommend.png",
             "url": "https://web.age-spa.com:8443/#/recommend"
         },
         {
             "title": "更新",
-            "icon": "https://gitee.com/xihan123/AGE/raw/master/splash/update.png",
+            "icon": "https://gitee.com/xihan123/AGE/raw/main/splash/update.png",
             "url": "https://web.age-spa.com:8443/#/update"
         },
         {
             "title": "排行榜",
-            "icon": "https://gitee.com/xihan123/AGE/raw/master/splash/rank.png",
+            "icon": "https://gitee.com/xihan123/AGE/raw/main/splash/rank.png",
             "url": "https://web.age-spa.com:8443/#/rank"
         }
     ]
