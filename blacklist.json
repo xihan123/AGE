@@ -1,0 +1,20 @@
+{
+	"blacklist": {
+		"devicesId": [
+			"8014b2aaa69914d46f6bb2086c115e1e",
+            "e483b1d3daa5d7ab60bc1dc673ee3f4d",
+            "2247ec38e040acd283376f8e0aa2c9be",
+            "b672e30b4e46847c357c98781efba48b"
+            
+
+		],
+        "adUrls":[
+            "p.pstatp.com",
+            "k.jinxiuzhilv.com",
+            "im.cnbik.com",
+            "zz.imiqian.com"
+            
+    ]
+
+	}
+}

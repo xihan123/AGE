@@ -1,0 +1,50 @@
+{
+    "launch": {
+        "pic": [
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/1.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/2.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/3.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/4.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/5.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/6.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/7.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/8.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/9.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/10.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/11.png",
+            "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/12.png"
+
+        ],
+        "url": ""
+    },
+    "appversion": "1.0.3",
+    "url": "https://web.age-spa.com:8443/#/",
+    "about": "https://xihan.rthe.net/about.html",
+    "nav": [
+        {
+            "title": "首页",
+            "icon": "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/index.png",
+            "url": "https://web.age-spa.com:8443/#/"
+        },
+        {
+            "title": "目录",
+            "icon": "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/catalog.png",
+            "url": "https://web.age-spa.com:8443/#/catalog"
+        },
+        {
+            "title": "推荐",
+            "icon": "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/recommend.png",
+            "url": "https://web.age-spa.com:8443/#/recommend"
+        },
+        {
+            "title": "更新",
+            "icon": "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/update.png",
+            "url": "https://web.age-spa.com:8443/#/update"
+        },
+        {
+            "title": "排行榜",
+            "icon": "https://gitee.com/xihan123/Odexpatch/raw/master/age/splash/rank.png",
+            "url": "https://web.age-spa.com:8443/#/rank"
+        }
+    ]
+}
