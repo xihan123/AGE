@@ -1,0 +1,39 @@
+{
+    "launch": {
+        "pic": [
+            "https://gitee.com/xihan123/AGE/raw/main/splash/1.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/2.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/3.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/4.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/5.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/6.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/7.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/8.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/9.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/10.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/11.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/12.png"
+        ],
+        "devicesId": [
+            "8014b2aaa69914d46f6bb2086c115e1e",
+            "ac51c7399a8614ca6d47bf12723ae6af"
+        ],
+        "shield": [
+            "妈",
+            "马",
+            "淦",
+            "群",
+            "日",
+            "广告",
+            "游客12002350126049",
+            "姜择敏"
+        ]
+    },
+    "appversion": "1.9",
+    "versioncode": "19",
+    "MyAge": "true",
+    "classes": "750E93EFCF9B857EC238582243BE8380",
+    "amf": "D5FBE721A6702F28CFE635E3F68104DB",
+    "sha1": "a68c97d850498cb95e94332f8be9e0732354e434",
+    "GG": "2021-02-28 更新:\n1.加入七牛云播放内核\n2.设置界面逻辑优化 \nx.将关闭1.5、1.6、1.7版本，版本低bug多，请更新至最新版"
+}

@@ -1,0 +1,34 @@
+{
+    "launch": {
+        "pic": [
+            "https://gitee.com/xihan123/AGE/raw/main/splash/1.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/2.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/3.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/4.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/5.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/6.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/7.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/8.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/9.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/10.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/11.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/12.png"
+        ],
+         "devicesId": [
+"8014b2aaa69914d46f6bb2086c115e1e",
+"ac51c7399a8614ca6d47bf12723ae6af"
+]
+        
+    },
+   
+    "appversion": "1.9",
+    "versioncode": "19",
+    "MyAge": "true",
+	"classes": "172EAFB8FDCF75635CC9B1618273B0AE",
+	"amf":"181389460B3F0C2F6C172A97D4696828",
+	"sha1":"c98c272e72ca8a6b9438b77867aa7d49d0837f29",
+    "GG": "2021-02-28 更新:\n1.加入七牛云播放内核\n2.设置界面逻辑优化 \nx.将关闭1.5、1.6、1.7版本，版本低bug多，请更新至最新版"
+
+
+    
+}

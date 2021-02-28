@@ -1,0 +1,34 @@
+{
+    "launch": {
+        "pic": [
+            "https://gitee.com/xihan123/AGE/raw/main/splash/1.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/2.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/3.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/4.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/5.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/6.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/7.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/8.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/9.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/10.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/11.png",
+            "https://gitee.com/xihan123/AGE/raw/main/splash/12.png"
+        ],
+         "devicesId": [
+"8014b2aaa69914d46f6bb2086c115e1e",
+"ac51c7399a8614ca6d47bf12723ae6af"
+]
+        
+    },
+   
+    "appversion": "1.4",
+    "versioncode": "11",
+    "MyAge": "true",
+	"classes": "4EA3B182C085582F2FB49117E335EFDA",
+	"amf":"9B0E2A52A0FF04125F704F53288E789B",
+	"sha1":"d2bf2a6f9891f753472459b9c407fbbad7807450",
+    "GG":"2021-02-17 更新:\n1.修复5个问题 \n2.优化逻辑 \n3.移除两个View \n4.添加了一个播放列表，修复一个播放源解析"
+
+
+    
+}
