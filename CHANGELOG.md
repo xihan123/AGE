@@ -5,6 +5,14 @@
 
 ### Miscellaneous
 
+* **master:** release 7.4.0 ([7d2dace](https://github.com/xihan123/AGE/commit/7d2dace29d2601341acfd625d933486be4b3b282))
+* **master:** release 7.4.0 ([aa4b9b0](https://github.com/xihan123/AGE/commit/aa4b9b032a3f7fc7e811e33d3040ea68bf5c9ef8))
+
+## [7.4.0](https://github.com/xihan123/AGE/compare/v7.4.0...v7.4.0) (2023-06-05)
+
+
+### Miscellaneous
+
 * **master:** release 7.4.0 ([aa4b9b0](https://github.com/xihan123/AGE/commit/aa4b9b032a3f7fc7e811e33d3040ea68bf5c9ef8))
 
 ## 7.4.0 (2023-06-05)
