@@ -1,0 +1,239 @@
+<resources>
+    <string name="app_name">AGE动漫</string>
+    <string name="title_home">首页</string>
+    <string name="title_catalog">目录</string>
+    <string name="title_recommend">推荐</string>
+    <string name="title_ranking">排行榜</string>
+    <string name="title_mine">我的</string>
+    <string name="error_params">参数错误捏(╬▔皿▔)凸</string>
+    <string name="error_empty">空空如也捏o(*￣▽￣*)o</string>
+    <string name="error_unknown">未知错误捏o(*￣▽￣*)o</string>
+    <string name="error_tip">错误提示</string>
+    <string name="search_hint">输入动漫名</string>
+    <!--每日推荐-->
+    <string name="recommend_title">每日推荐</string>
+    <!--最近更新-->
+    <string name="recent_update_title">最近更新</string>
+
+    <string name="join_ok">(´・ω・`) 自己追的番就要好好看完哦~</string>
+    <string name="join_error">(っ °Д °;)っ 哼~ 竟然真的抛弃了人家.</string>
+
+    <string name="disclaimers_title">免责声明</string>
+    <string name="disclaimers_message">"         一切移动客户端用户在下载并浏览AGE动漫时均被视为已经仔细阅读本条款并完全同意.凡以任何方式直接、间接使用本APP者，均被视为自愿接受此相关声明和用户服务协议的约束\n\n         本APP属非赢利性质,不提供任何视听上传服务,所有内容均来自视频分享站点所提供的公开引用资源,所有视频及图文版权均归原作者及其网站所有.并不代表本APP之意见及观点，也不意味着本APP赞同其观点或证实其内容的真实性\n\n         由于互联网转载的不可预性，无法确认所有内容的版权所有人.任何单位或个人认为通过我们提供的内容可能涉嫌侵犯其信息网络传播权,应该及时向我们提出书面权利通知,并提供相关证明、权属证明及详细侵权情况证明.我们在收到上述法律文件后,将会尽快采取措施并予以屏蔽相关链接内容.\n\n         我们本着在未改变视频内容的提供主体情况下为用户提供视频链接的网络服务,并将竭力确保版权方并未失去对视频内容传播的控制权,我们将积极主动地维护广大网民及视频创造者的合法权益,维护公众利益共建和谐网络环境,以鼓励视频创造者创做更多优质内容让更多用户看到.在版权保护的道路上,我们愿
+意积极配合版权方做出快速有效的回应\n\n         任何存在于APP上的视频、图文资料均系他人制作或提供,我们仅解析并展示,没有对任何视频做编辑和整理,视频数据流也不经由本人服务器中转或存储,因网络状况、通讯线路、第三方网站等任何原因而导致您不能正常使用本APP,本APP不承担任何法律责任.\n\n         您应该对浏览使用本APP一切服务自行承担风险.我们不做任何形式的保证:不保证站内搜索结果满足您的要求,不保证网站服务不中断,不保证视频及图文资源的安全性、正确性、及时性、合法性.\n\n         本APP尊重并保护所有使用本APP用户的个人隐私权,您注册的用户名、密码等个人资料,均不涉及任何上传，仅用于登录使用\n\n         我们一切资源仅为学习交流娱乐所用，请在下载后24小时内删除，未经版权许可，任何单位或个人不得将本站内容或服务用于商业目的\n\n         本声明未涉及的问题请参见国家有关法律法规,当本声明与国家有关法律法规冲突时,以国家法律法规为准.\n\n         对免责声明的解释、修改及更新权均属于希涵所有.\n\n
+
+By: 希涵\n\n
+2022-03-06宣"
+
+    </string>
+
+    <!--重试-->
+    <string name="retry">重试</string>
+    <string name="retry_Tip">配置文件: %s 错误</string>
+    <string name="model_ErrorMessage">模型为空</string>
+    <!--滑动到底部-->
+    <string name="scroll_to_bottom">滑动到底部</string>
+    <!--滑动到顶部-->
+    <string name="scroll_to_top">滑动到顶部</string>
+    <!--展开全部-->
+    <string name="expand_all">展开全部</string>
+    <!--历史记录-->
+    <string name="history">历史记录</string>
+    <!--清空历史记录-->
+    <string name="clear_history">清空历史记录</string>
+    <string name="clear_history_progress">清空播放历史进度</string>
+    <string name="delete_all">清空之后就什么都没有了哦~</string>
+    <string name="delete_player_all_history">清空后所有播放进度记录消失,不触发自动跳进度功能\nps:仅清空作用于自动播放进度跳转,不影响历史记录中的显示</string>
+    <string name="delete_single_tip">是否删除该条记录？</string>
+    <string name="clear_all">清除全部</string>
+    <!--获取远程历史记录-->
+    <string name="get_remote_history">获取远程历史记录</string>
+    <!--更新远程历史记录-->
+    <string name="update_remote_history">更新远程历史记录</string>
+    <!--清空远程历史记录-->
+    <string name="clear_remote_history">清空远程历史记录</string>
+    <!--历史记录远程更新消息-->
+    <string name="HistoryRemoteUpdateTip">远程数据:\n创建时间: %s\n上次更新时间: %s\n有 %s 条数据\n是否覆盖本地历史记录?</string>
+    <!--上次观看时间-->
+    <string name="last_watch_time">上次观看时间: %s</string>
+    <!--详情页-->
+    <string name="detail">详情页>>></string>
+    <!--%s 的搜索结果-->
+    <string name="search_result">[%s] 搜索结果</string>
+    <!--下一集: %s-->
+    <string name="next_episode">下一集: %s</string>
+    <!--上一集: %s-->
+    <string name="previous_episode">上一集: %s</string>
+    <!--选集-->
+    <string name="select_episode">选集</string>
+    <!--倍速-->
+    <string name="speed">倍速</string>
+    <!--设置快进/快退时长-->
+    <string name="set_seek_duration">设置快进/快退时长</string>
+    <!--启动画中画模式-->
+    <string name="start_pip">启动画中画模式</string>
+    <!--播放时隐藏底部进度-->
+    <string name="hide_bottom_progress">播放时隐藏底部进度</string>
+    <!--自动播放下一集-->
+    <string name="auto_play_next_episode">自动播放下一集</string>
+    <!--没有更多视频了-->
+    <string name="no_more_video">没有更多视频了捏~(￣▽￣)~*</string>
+    <string name="open_browser_player">打开浏览器观看</string>
+    <string name="click_to_sniffer">尝试网页嗅探</string>
+    <string name="open_drama_list">打开选集列表</string>
+    <!--用户名-->
+    <string name="user_name">用户名: %s</string>
+    <!--未登录提示-->
+    <string name="not_login">未登录,点我去登录</string>
+    <!--退出登录-->
+    <string name="logout">退出登录</string>
+    <!--打赏-->
+    <string name="reward">打赏</string>
+    <!--收藏-->
+    <string name="collect">收藏</string>
+    <!--追番-->
+    <string name="follow">追番</string>
+    <!--设置-->
+    <string name="setting">设置</string>
+    <!--关于-->
+    <string name="about">关于</string>
+
+    <!--新用户注册-->
+    <string name="register">新用户?立即注册</string>
+    <string name="register_title">注册</string>
+    <string name="register_username">用户名</string>
+    <string name="register_password">密码</string>
+    <!--登录-->
+    <string name="login_title">登录</string>
+    <!--登录密码提示-->
+    <string name="login_password_hint">请输入8~32位密码</string>
+    <!--登录密码规则提示-->
+    <string name="login_password_rule">密码应为8~32位!!!</string>
+    <!--登录用户名提示-->
+    <string name="login_username_hint">请输入16位以内用户名</string>
+    <!--登录用户名规则提示-->
+    <string name="login_username_rule">用户名或密码不能为空~</string>
+    <!--登录按钮-->
+    <string name="login">登录</string>
+    <!--登录成功-->
+    <string name="tag_login_success">登录成功</string>
+    <!--注册成功-->
+    <string name="register_success">注册成功已自动登录,欢迎使用~</string>
+    <!--登录失败-->
+    <string name="login_fail">登录失败</string>
+    <string name="login_fail_text">用户名或密码不能为空~</string>
+    <string name="login_fail_text2">密码应为8~32位!!</string>
+    <!--失败提醒-->
+    <string name="FailedTip">失败: %s</string>
+
+    <!--tag更新历史记录-->
+    <string name="tag_update_history">更新历史记录</string>
+    <!--tag更新收藏信息-->
+    <string name="tag_update_collect">更新收藏信息</string>
+    <!--tag本地收藏刷新数据-->
+    <string name="tag_local_collect_refresh">本地收藏刷新数据</string>
+    <!--tag追番刷新数据-->
+    <string name="tag_follow_refresh">追番刷新数据</string>
+
+    <!--打赏提示-->
+    <string name="reward_text">如果觉得这个软件对您有用，可扫描下方二维码随意打赏,要是能打赏个 10.24 🐵就太👍了。您的支持就是我更新的动力~</string>
+    <!--支付宝-->
+    <string name="alipay">支付宝</string>
+    <!--微信-->
+    <string name="wechat">微信</string>
+    <!--未安装Tip-->
+    <string name="not_install_tip">未安装%s捏~(￣▽￣)~*</string>
+
+    <!--本地收藏-->
+    <string name="local_collect">本地收藏</string>
+    <!--网络收藏-->
+    <string name="network_collect">网络收藏</string>
+    <!--删除网络收藏成功-->
+    <string name="delete_network_collect_success">删除网络收藏成功</string>
+    <!--删除网络收藏失败-->
+    <string name="delete_network_collect_fail">删除网络收藏失败,请稍后重试</string>
+    <!--删除数量及成功提示-->
+    <string name="delete_collect_success">共需删除 %s 部,删除成功 %s 部</string>
+    <!--同步成功提示-->
+    <string name="sync_success">同步成功!</string>
+    <!--同步失败提示-->
+    <string name="sync_fail">同步失败!</string>
+    <!--同步数量及成功数量提示-->
+    <string name="sync_count">共需同步 %s 部,同步成功 %s 部</string>
+    <!--总数量-->
+    <string name="total_count">共 %s 部</string>
+    <!--取消收藏-->
+    <string name="cancel_collect">取消收藏</string>
+    <!--清空收藏-->
+    <string name="clear_collect">清空收藏</string>
+    <!--全部设置收藏-->
+    <string name="all_collect">全部设置收藏</string>
+    <!--同步至网络-->
+    <string name="sync_network">同步至网络</string>
+    <!--全部同步至网络-->
+    <string name="all_sync_network">全部同步至网络</string>
+    <!--全部同步至本地-->
+    <string name="all_sync_local">全部同步至本地</string>
+    <!--清空追番记录-->
+    <string name="clear_follow">清空追番记录</string>
+    <!--默认排序-->
+    <string name="default_sort">默认排序</string>
+    <!--按更新时间排序-->
+    <string name="update_time_sort">按更新时间排序</string>
+    <!--按观看时间排序-->
+    <string name="watch_time_sort">按观看时间排序</string>
+    <!--按倒序-->
+    <string name="reverse_sort">倒序</string>
+    <string name="setting_RemoteExtensionInterface">远程拓展接口</string>
+    <string name="setting_PlaySniffingTimeout">播放嗅探超时</string>
+    <string name="setting_ConfigFileIndex">默认配置文件选择</string>
+    <string name="setting_CollectionDisplayQuantity">收藏显示数量</string>
+    <string name="setting_RankingDisplayQuantity">排行榜显示数量</string>
+    <string name="setting_RecommendedDisplayQuantity">推荐显示数量</string>
+    <string name="setting_DirectoryLoadDisplayQuantity">目录加载显示数量</string>
+    <string name="setting_DialogTip">默认为%s\n建议设定%s\nps:设定太多可能会导致卡顿甚至崩溃</string>
+    <string name="setting_LatestUpdatedDisplayQuantityOfHomePage">首页最近更新显示数量</string>
+    <string name="setting_RecommendedDailyDisplayQuantityOfHomePage">首页每日推荐显示数量</string>
+    <string name="setting_CleanUpCache">清理缓存</string>
+    <string name="setting_AutoCleanCache">自动清理缓存</string>
+    <string name="setting_SyncCollection">同步收藏</string>
+    <string name="exo_download_notification_channel_name">下载内容</string>
+    <string name="setting_ChaseAnimeTip">追番提醒</string>
+    <string name="setting_ChangeThemeModeTip">切换主题设置后需重启应用,是否立即重启\n若不重启可能会有奇怪的bug</string>
+    <string name="setting_SafeDns">安全DNS</string>
+    <string name="setting_SafeDnsTip">当前DNS服务器地址: %s</string>
+    <string name="setting_FollowSystemTheme">跟随系统主题</string>
+    <string name="setting_CustomAPI">自定义API</string>
+    <string name="setting_CustomApiTip">当前API地址: %s</string>
+    <string name="setting_FollowAnime">追番(更新)提醒</string>
+    <string name="setting_AutoSyncCollection">自动同步收藏</string>
+    <string name="setting_HNo">H是不行哒(ง •_•)ง</string>
+    <string name="setting_HYes">H是可以的(￣_,￣ )</string>
+    <string name="about_TodayPassword">今日密码</string>
+    <string name="about_ItemPass">这都被你发现了~ \n\n 既然进来了，就代表你知道这是什么你想要什么!! \n\n 为了避免后续扯皮，默认你同意免责声明，使用此软件一切后果自行承担!</string>
+    <string name="about_CloudDownloads">网盘下载</string>
+    <string name="about_CloudDownloadsPass">网盘下载密码: %s</string>
+    <string name="about_Copyright">© %1$s 希涵 All rights reserved.</string>
+    <string name="about_BuildInfo">当前版本: %s\nAS版本: %s\nGradle版本: %s\n编译时间: %s</string>
+    <!--访问官网-->
+    <string name="about_AccessWebsite">访问官网</string>
+    <!--源码地址-->
+    <string name="about_SourceCode">源码地址</string>
+    <!--同步信息-->
+    <string name="about_SyncInfo">同步信息</string>
+    <!--检查更新-->
+    <string name="about_CheckUpdate">检查更新</string>
+    <string name="about_copyright">© %1$s 希涵 All rights reserved.</string>
+    <string name="about_HasBeenActivated">已经激活了，无需再次激活~</string>
+    <string name="about_CancelActivated">取消激活</string>
+    <string name="about_ActivatedSuccess">激活成功</string>
+    <string name="about_ActivatedFailed">激活失败</string>
+    <!--设置-->
+    <string name="autoThemeString">跟随系统主题</string>
+    <string name="theme_night">深色模式</string>
+    <string name="theme_day">浅色模式</string>
+    <!--更新-->
+    <string name="find_new_version">发现新版本:</string>
+    <string name="update_now">现在更新</string>
+    <string name="update_after">暂不更新</string>
+</resources>
