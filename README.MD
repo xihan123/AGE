@@ -1,5 +1,5 @@
 # AGE动漫
-![AGE](https://socialify.git.ci/xihan123/AGE/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fgithub.com%2Fxihan123%2FAGE%2Fblob%2Fmaster%2FScreenshots%2Fapp_icon.webp%3Fraw%3Dtrue&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Light)
+![AGE](https://socialify.git.ci/xihan123/AGE/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Fgithub.com%2Fxihan123%2FAGE%2Fraw%2Fmaster%2FScreenshots%2Fapp_icon.webp&name=1&owner=1&pulls=1&stargazers=1&theme=Light)
 
 ![](https://img.shields.io/badge/Android-7.0%20or%20above-brightgreen.svg)
 [![Latest Release](https://img.shields.io/github/release/xihan123/AGE.svg)](../../releases)
