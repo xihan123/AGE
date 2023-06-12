@@ -5,6 +5,17 @@
 
 ### Miscellaneous
 
+* **deps:** update dependency gradle to v8.1.1 ([8babe9c](https://github.com/xihan123/AGE/commit/8babe9c77de59d95b560bf4b711ba5032f4dfcab))
+* **master:** release 7.4.0 ([e917bb0](https://github.com/xihan123/AGE/commit/e917bb08c9163c7dce10854ead2c6f293b96c428))
+* **master:** release 7.4.0 ([1fe90c1](https://github.com/xihan123/AGE/commit/1fe90c1ff8bd0089f81270511a7d4d6710d7e951))
+* **master:** release 7.4.0 ([7d2dace](https://github.com/xihan123/AGE/commit/7d2dace29d2601341acfd625d933486be4b3b282))
+* **master:** release 7.4.0 ([aa4b9b0](https://github.com/xihan123/AGE/commit/aa4b9b032a3f7fc7e811e33d3040ea68bf5c9ef8))
+
+## [7.4.0](https://github.com/xihan123/AGE/compare/v7.4.0...v7.4.0) (2023-06-12)
+
+
+### Miscellaneous
+
 * **master:** release 7.4.0 ([1fe90c1](https://github.com/xihan123/AGE/commit/1fe90c1ff8bd0089f81270511a7d4d6710d7e951))
 * **master:** release 7.4.0 ([7d2dace](https://github.com/xihan123/AGE/commit/7d2dace29d2601341acfd625d933486be4b3b282))
 * **master:** release 7.4.0 ([aa4b9b0](https://github.com/xihan123/AGE/commit/aa4b9b032a3f7fc7e811e33d3040ea68bf5c9ef8))
