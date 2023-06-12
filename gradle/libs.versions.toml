@@ -148,7 +148,7 @@ hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", ve
 
 
 
-htmlunit = { module = "org.htmlunit:htmlunit3-android", version = "3.1.0" }
+htmlunit = { module = "org.htmlunit:htmlunit3-android", version = "3.3.0" }
 jsoup = { module = "org.jsoup:jsoup", version = "1.16.1" }
 #https://github.com/idisfkj/android-startup
 startup = { module = "androidx.startup:startup-runtime", version = "1.1.1" }
