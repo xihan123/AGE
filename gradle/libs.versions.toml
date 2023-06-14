@@ -137,7 +137,7 @@ com-github-liangjingkanji-Channel = { module = "com.github.liangjingkanji:Channe
 io-coil-kt-coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 io-coil-kt-coil-video = { module = "io.coil-kt:coil-video", version.ref = "coil" }
 io-coil-kt-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-com-tencent-mmkv-static = { module = "com.tencent:mmkv-static", version = "1.2.16" }
+com-tencent-mmkv-static = { module = "com.tencent:mmkv-static", version = "1.3.0" }
 
 
 com-google-dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
