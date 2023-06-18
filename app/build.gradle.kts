@@ -1,4 +1,3 @@
-import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
 import org.jetbrains.kotlin.gradle.tasks.UsesKotlinJavaToolchain
 import java.io.FileInputStream
 import java.util.Properties
@@ -85,7 +84,7 @@ android {
 
     kotlinOptions.jvmTarget = "17"
 
-    buildFeatures{
+    buildFeatures {
         compose = true
         buildConfig = true
     }
@@ -187,7 +186,7 @@ dependencies {
     implementation(libs.io.coil.kt.coil.video)
     implementation(libs.io.coil.kt.coil.compose)
     implementation(libs.startup)
-    implementation(libs.com.github.ihsanbal.logging.interceptor){
+    implementation(libs.com.github.ihsanbal.logging.interceptor) {
         exclude(group = "com.squareup.okhttp3")
         exclude(group = "org.json")
     }
@@ -235,7 +234,7 @@ dependencies {
 }
 
 configure<de.jensklingenberg.ktorfit.gradle.KtorfitGradleConfiguration> {
-    version = "1.3.0"
+    version = libs.versions.ktorfit.get()
 }
 val service = project.extensions.getByType<JavaToolchainService>()
 val customLauncher = service.launcherFor {
