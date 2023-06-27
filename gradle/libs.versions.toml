@@ -130,7 +130,7 @@ com-getactivity-xxpermissions-xxpermissions = { module = "com.github.getActivity
 #https://github.com/ParfoisMeng/SlideBack
 com-parfoismeng-slideback-slideback = { module = "com.github.ParfoisMeng:SlideBack", version = "1.1.2" }
 #https://github.com/ltttttttttttt/ComposeViews/blob/main/README_CN.md
-io-github-ltttttttttttt-composeviews = { module = "io.github.ltttttttttttt:ComposeViews", version = "1.4.0.10" }
+io-github-ltttttttttttt-composeviews = { module = "io.github.ltttttttttttt:ComposeViews", version = "1.4.0.12" }
 com-jakewharton-timber-timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 com-qiniu-happy-dns = { module = "com.qiniu:happy-dns", version = "2.0.1" }
 com-github-liangjingkanji-Channel = { module = "com.github.liangjingkanji:Channel", version = "1.1.5" }
