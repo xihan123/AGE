@@ -90,7 +90,7 @@ com-google-accompanist-accompanist-navigation-material = { module = "com.google.
 com-google-accompanist-accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
 com-google-accompanist-accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
 com-google-accompanist-accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
-com-google-android-material = { module = "com.google.android.material:material", version = "1.10.0-alpha04" }
+com-google-android-material = { module = "com.google.android.material:material", version = "1.10.0-alpha05" }
 
 org-jetbrains-kotlinx-kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 org-jetbrains-kotlinx-kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kJson" }
