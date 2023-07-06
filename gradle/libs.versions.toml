@@ -1,6 +1,6 @@
 [versions]
 agp = "8.0.2"
-kotlin = "1.9.0-Beta"
+kotlin = "1.9.0"
 ksp = "1.9.0-RC-1.0.11"
 lifecycle = "2.6.1"
 compose-bom = "2023.04.00-beta02"#2023.04.00-beta01 2023.04.00-alpha04
