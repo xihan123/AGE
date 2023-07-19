@@ -122,9 +122,9 @@ org-orbit-mvi-orbit-compose = { module = "org.orbit-mvi:orbit-compose", version.
 com-kongzue-dialogx = { module = "com.github.kongzue.DialogX:DialogX", version.ref = "dialogx" }
 com-kongzue-dialogx-materialyou = { module = "com.github.kongzue.DialogX:DialogXMaterialYou", version.ref = "dialogx" }
 #https://github.com/skydoves/landscapist#coil
-com-skydoves-landscapist-coil = { module = "com.github.skydoves:landscapist-coil", version = "2.2.2" }
+com-skydoves-landscapist-coil = { module = "com.github.skydoves:landscapist-coil", version = "2.2.3" }
 #https://github.com/skydoves/WhatIf
-com-skydoves-whatif = { module = "com.github.skydoves:whatif", version = "1.1.2" }
+com-skydoves-whatif = { module = "com.github.skydoves:whatif", version = "1.1.3" }
 #https://github.com/getActivity/XXPermissions
 com-getactivity-xxpermissions-xxpermissions = { module = "com.github.getActivity:XXPermissions", version = "18.2" }
 #https://github.com/ParfoisMeng/SlideBack
