@@ -107,12 +107,15 @@ object NetworkModule {
                 SSLSocketClient.getX509TrustManager()
             )
             hostnameVerifier(SSLSocketClient.getHostnameVerifier())
-            addInterceptor(
-                LoggingInterceptor.Builder()
-                    .setLevel(Level.BASIC)
-                    .log(Platform.WARN)
-                    .build()
-            )
+            if (BuildConfig.DEBUG){
+                addInterceptor(
+                    LoggingInterceptor.Builder()
+                        .setLevel(Level.BASIC)
+                        .log(Platform.WARN)
+                        .build()
+                )
+            }
+
             if (SharedPreferencesUtil("SPSetting").decodeBoolean("customDns")) {
                 dns(OkHttpDns())
             }
