@@ -132,7 +132,7 @@ channel = { module = "com.github.liangjingkanji:Channel", version = "1.1.5" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-video = { module = "io.coil-kt:coil-video", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-mmkv-static = { module = "com.tencent:mmkv-static", version = "1.3.0" }
+mmkv-static = { module = "com.tencent:mmkv-static", version = "1.3.1" }
 x5-core = { module = "com.tencent.tbs:tbssdk", version = "44286"}
 dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
