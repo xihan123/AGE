@@ -82,7 +82,7 @@ accompanist-navigation-material = { module = "com.google.accompanist:accompanist
 accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
 accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
-android-material = { module = "com.google.android.material:material", version = "1.10.0-alpha05" }
+android-material = { module = "com.google.android.material:material", version = "1.10.0-alpha06" }
 
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.4.0" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
