@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">AGE动漫</string>
+    <string name="title_home">首页</string>
+    <string name="title_catalog">目录</string>
+    <string name="title_recommend">推荐</string>
+    <string name="title_ranking">排行榜</string>
+    <string name="title_mine">我的</string>
+    <!--分类-->
+    <string name="category_title">分类</string>
+    <!--时间表-->
+    <string name="schedule_title">时间表</string>
+    <string name="error_params">参数错误捏(╬▔皿▔)凸</string>
+    <string name="error_empty">空空如也捏o(*￣▽￣*)o</string>
+    <string name="error_unknown">未知错误捏o(*￣▽￣*)o</string>
+    <string name="error_tip">错误提示</string>
+    <string name="search_hint">输入动漫名</string>
+    <!--每日推荐-->
+    <string name="recommend_title">每日推荐</string>
+    <!--最近更新-->
+    <string name="recent_update_title">最近更新</string>
+    <!--相关动画-->
+    <string name="related_title">相关动画</string>
+    <string name="similar_title">猜你喜欢</string>
+    <string name="join_ok">(´・ω・`) 自己追的番就要好好看完哦~</string>
+    <string name="join_error">(っ °Д °;)っ 哼~ 竟然真的抛弃了人家.</string>
+    <!--上次观看时间-->
+    <string name="last_watch_time">上次观看时间: %s</string>
+    <!--取消收藏-->
+    <string name="cancel_collect">取消收藏</string>
+    <!--清空收藏-->
+    <string name="clear_collect">清空收藏</string>
+    <!--按倒序-->
+    <string name="reverse_sort">倒序</string>
+    <!--默认排序-->
+    <string name="default_sort">默认排序</string>
+    <!--按更新时间排序-->
+    <string name="update_time_sort">按更新时间排序</string>
+    <!--按观看时间排序-->
+    <string name="watch_time_sort">按观看时间排序</string>
+    <!--清空历史记录-->
+    <string name="clear_history">清空历史记录</string>
+    <string name="delete_all">清空之后就什么都没有了哦~</string>
+    <!--详情页-->
+    <string name="detail">详情页>>></string>
+    <!--滑动到底部-->
+    <string name="scroll_to_bottom">滑动到底部</string>
+    <!--滑动到顶部-->
+    <string name="scroll_to_top">滑动到顶部</string>
+    <!--展开全部-->
+    <string name="expand_all">展开全部</string>
+    <!--历史记录-->
+    <string name="history">历史记录</string>
+    <!--更多-->
+    <string name="more">更多</string>
+</resources>
