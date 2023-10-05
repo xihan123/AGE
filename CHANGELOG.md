@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/xihan123/AGE/compare/v1.0.1...v1.0.2) (2023-10-05)
+
+
+### Miscellaneous
+
+* 更新依赖库 ([b1d1da2](https://github.com/xihan123/AGE/commit/b1d1da287a62ef8f7d073844ad3233763b29507e))
+
 ## 1.0.1 (2023-10-01)
 
 
