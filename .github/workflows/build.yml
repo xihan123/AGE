@@ -16,6 +16,14 @@ jobs:
         os: [ ubuntu-latest ]
 
     steps:
+      - name: Check Commit Message [skip CI]
+        env:
+          COMMIT_FILTER: "[skip ci]"
+        if: contains(github.event.head_commit.message, '[skip ci]')
+        run: |
+          echo "no 'skip ci' in commit message"
+          exit 2
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -60,11 +68,6 @@ jobs:
       - name: Build with Gradle
         run: |
           [ $(du -s ~/.gradle/wrapper | awk '{ print $1 }') -gt 250000 ] && rm -rf ~/.gradle/wrapper/* || true
-           echo 'org.gradle.caching=true' >> gradle.properties
-           echo 'org.gradle.parallel=true' >> gradle.properties
-           echo 'org.gradle.vfs.watch=true' >> gradle.properties
-           echo 'org.gradle.jvmargs=-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC -XX:MaxMetaspaceSize=1g' >> gradle.properties
-           echo 'android.native.buildOutput=verbose' >> gradle.properties
            chmod +x gradlew
            ./gradlew assembleRelease
 
