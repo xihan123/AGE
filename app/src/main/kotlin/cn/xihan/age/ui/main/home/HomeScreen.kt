@@ -76,7 +76,7 @@ import com.skydoves.landscapist.coil.CoilImage
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.compose.collectAsState
-import kotlin.random.Random
+import kotlin.time.Duration.Companion.seconds
 
 
 /**
@@ -179,14 +179,15 @@ private fun Carousel(
     bannerList: List<Banner.BannerItemModel?>, onSlideClick: (Int?) -> Unit
 ) {
     val pagerState =
-        rememberPagerState(Int.MAX_VALUE / 2 + Random.nextInt(0, 10), pageCount = { Int.MAX_VALUE })
+        rememberPagerState(0, pageCount = bannerList::size)
 
     LaunchedEffect(Unit) {
         while (true) {
             val before = pagerState.currentPage
-            delay(5_000)
+            delay(5.seconds)
             if (pagerState.currentPage == before) {
-                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                val target = if (pagerState.currentPage == bannerList.size - 1) 0 else pagerState.currentPage + 1
+                pagerState.animateScrollToPage(target)
             }
         }
     }
@@ -249,7 +250,6 @@ private fun Carousel(
                     )
                 }
             }
-
         }
         Row(
             modifier = Modifier
