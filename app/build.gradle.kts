@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.UsesKotlinJavaToolchain
 import java.io.FileInputStream
 import java.util.Properties
 
@@ -10,7 +8,6 @@ plugins {
     alias(libs.plugins.kotlinKsp)
     alias(libs.plugins.kotlinParcelize)
     alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.kotlinKapt)
     alias(libs.plugins.hiltAndroid)
     alias(libs.plugins.ktorfit)
     alias(libs.plugins.jgit)
@@ -160,7 +157,6 @@ android {
                 "**/*.xml",
                 "**/*.properties",
                 "DebugProbesKt.bin",
-                "java-tooling-metadata.json",
                 "kotlin-tooling-metadata.json"
             )
 
@@ -272,8 +268,6 @@ dependencies {
 //    implementation(libs.accompanist.webview)
     implementation(libs.android.material)
 
-
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -283,36 +277,3 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 }
-
-configure<de.jensklingenberg.ktorfit.gradle.KtorfitGradleConfiguration> {
-    version = libs.versions.ktorfit.get()
-}
-
-val service = project.extensions.getByType<JavaToolchainService>()
-val customLauncher = service.launcherFor {
-    languageVersion.set(JavaLanguageVersion.of("17"))
-}
-project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
-    kotlinJavaToolchain.toolchain.use(customLauncher)
-}
-
-kotlin{
-    compilerOptions {
-        languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
-        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
-        jvmTarget.set(JvmTarget.JVM_17)
-    }
-//    sourceSets.all {
-//        languageSettings.apply {
-//            languageVersion = "2.0"
-//        }
-//    }
-}
-
-//tasks.withType<org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask>()
-//    .configureEach {
-//        kaptProcessJvmArgs.add("-Xmx512m")
-//    }
-//kapt {
-//    correctErrorTypes = true
-//}

@@ -1,27 +1,27 @@
 [versions]
-agp = "8.3.0-alpha06"
-kotlin = "1.9.10"
-ksp = "1.9.10-1.0.13"
-lifecycle = "2.7.0-alpha02"
-compose-bom = "2023.11.00-alpha01"
-hilt = "2.48"
-hilt-androidx = "1.0.0"
-coroutines = "1.7.3"
-kJson = "1.6.0"
+agp = "8.2.0"
+kotlin = "2.0.0-Beta1"
+ksp = "2.0.0-Beta1-1.0.15"
+lifecycle = "2.7.0-alpha03"
+compose-bom = "2023.12.00-alpha03"
+hilt = "2.49"
+hilt-androidx = "1.1.0"
+coroutines = "1.8.0-RC"
+kJson = "1.6.2"
 work-runtime = "2.8.1"
-room = "2.6.0-rc01"
-okhttp = "4.11.0"
-ktorfit = "1.7.0"
-ktor = "2.3.4"
-navigation-compose = "2.7.4"
+room = "2.6.1"
+okhttp = "4.12.0"
+ktorfit = "1.10.2"
+ktor = "2.3.6"
+navigation-compose = "2.7.5"
 accompanist = "0.33.2-alpha"
 dialogx = "0.0.48"
 media3 = "1.1.1"
-coil = "2.4.0"
+coil = "2.5.0"
 orbit = "6.1.0"
 paging = "3.2.1"
-material3 = "1.2.0-alpha08"
-compose-compiler = "1.5.3-dev-k1.9.10-593b4c95fce"
+material3 = "1.2.0-alpha12"
+compose-compiler = "1.5.5-dev-k2.0.0-Beta1-06b8ae672a4"
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
@@ -59,7 +59,7 @@ paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "pag
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
 
-activity-compose = { module = "androidx.activity:activity-compose", version = "1.8.0" }
+activity-compose = { module = "androidx.activity:activity-compose", version = "1.8.1" }
 #https://github.com/chrisbanes/compose-bom
 compose-bom = { module = "dev.chrisbanes.compose:compose-bom", version.ref = "compose-bom" }
 ui = { module = "androidx.compose.ui:ui" }
@@ -80,7 +80,7 @@ material3-window-size = { module = "androidx.compose.material3:material3-window-
 accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
 #accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
 #accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
-android-material = { module = "com.google.android.material:material", version = "1.10.0-rc01" }
+android-material = { module = "com.google.android.material:material", version = "1.10.0" }
 
 #kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.22.0" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.4.1" }
@@ -118,11 +118,11 @@ orbit-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "orbit" 
 dialogx = { module = "com.github.kongzue.DialogX:DialogX", version.ref = "dialogx" }
 dialogx-materialyou = { module = "com.github.kongzue.DialogX:DialogXMaterialYou", version.ref = "dialogx" }
 #https://github.com/skydoves/landscapist#coil
-landscapist-coil = { module = "com.github.skydoves:landscapist-coil", version = "2.2.10" }
+landscapist-coil = { module = "com.github.skydoves:landscapist-coil", version = "2.2.12" }
 #https://github.com/skydoves/WhatIf
 whatif = { module = "com.github.skydoves:whatif", version = "1.1.3" }
 #https://github.com/getActivity/XXPermissions
-xxpermissions = { module = "com.github.getActivity:XXPermissions", version = "18.3" }
+xxpermissions = { module = "com.github.getActivity:XXPermissions", version = "18.5" }
 #https://github.com/ParfoisMeng/SlideBack
 slideback = { module = "com.github.ParfoisMeng:SlideBack", version = "1.1.2" }
 #https://github.com/ltttttttttttt/ComposeViews/blob/main/README_CN.md
@@ -144,7 +144,7 @@ hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", ve
 jsoup = { module = "org.jsoup:jsoup", version = "1.16.1" }
 #https://github.com/idisfkj/android-startup
 startup = { module = "androidx.startup:startup-runtime", version = "1.1.1" }
-lottie-compose = { module = "com.airbnb.android:lottie-compose", version = "6.1.0"}
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version = "6.2.0"}
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
