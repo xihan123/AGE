@@ -5,7 +5,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import cn.xihan.age.model.CommentResponseModel
 import cn.xihan.age.util.AgeException
-import cn.xihan.age.util.Api
+import cn.xihan.age.util.Settings
 import cn.xihan.age.util.kJson
 import cn.xihan.age.util.logError
 import kotlinx.coroutines.CompletableDeferred
@@ -45,7 +45,7 @@ class CommentPagingSource(
         try {
             val nextPageNumber = params.key ?: 1
             val response =
-                "${Api.API_BASE_URL}comment/$animeId?page=$nextPageNumber".await(okhttpClient)
+                "${Settings.API_BASE_URL}comment/$animeId?page=$nextPageNumber".await(okhttpClient)
             val model = response
                 .takeIf { it.isSuccessful }
                 ?.body

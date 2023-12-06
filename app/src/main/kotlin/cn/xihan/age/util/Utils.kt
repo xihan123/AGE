@@ -44,6 +44,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Formatter
 import java.util.Locale
+import kotlin.system.exitProcess
 
 /**
  * @项目名 : AGE动漫
@@ -231,6 +232,16 @@ fun Context.openUrl(url: String) = runCatching {
     val intent = Intent(Intent.ACTION_VIEW)
     intent.data = Uri.parse(url)
     startActivity(intent)
+}
+
+/**
+ * 重新启动应用程序
+ * @suppress Generate Documentation
+ */
+fun Activity.restartApplication() = packageManager.getLaunchIntentForPackage(packageName)?.let {
+    finishAffinity()
+    startActivity(intent)
+    exitProcess(0)
 }
 
 object Utils {

@@ -19,12 +19,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -38,12 +38,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import cn.xihan.age.component.AgeScaffold
 import cn.xihan.age.component.AnimatedSwitchButton
 import cn.xihan.age.model.AlertDialogModel
+import cn.xihan.age.ui.player.findActivity
 import cn.xihan.age.ui.theme.AgeAnimeIcons
 import cn.xihan.age.util.AgeException
 import cn.xihan.age.util.Api
@@ -54,6 +56,7 @@ import cn.xihan.age.util.openUrl
 import cn.xihan.age.util.rememberMutableInteractionSource
 import cn.xihan.age.util.rememberMutableStateOf
 import cn.xihan.age.util.rememberSavableMutableStateOf
+import cn.xihan.age.util.restartApplication
 import cn.xihan.age.util.toBitmap
 import coil.compose.AsyncImage
 import org.orbitmvi.orbit.compose.collectAsState
@@ -88,37 +91,29 @@ fun MineScreen(
     val passWork = rememberMutableStateOf(value = "")
     val captcha = rememberMutableStateOf(value = "")
     var playerSettingVisibility by rememberMutableStateOf(value = false)
+    var apiSettingVisibility by rememberMutableStateOf(value = false)
+    val apiUrl = rememberMutableStateOf(value = Settings.API_BASE_URL)
     var autoFullscreen by rememberSavableMutableStateOf(value = Settings.autoFullscreen)
     var playSkipTime by rememberSavableMutableStateOf(value = Settings.playSkipTime)
 
-    AgeScaffold(
-        modifier = Modifier.padding(padding),
-        state = state,
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = "${greeting(LocalTime.now())}${if (state.hideUserName) "" else state.userModel?.username?.ifBlank { "游客" } ?: "游客"}")
-                },
-                actions = {
-                    Icon(
-                        modifier = Modifier
-                            .clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.secondary)
-                            .clickable(role = Role.Button, onClick = viewModel::changeThemeMode)
-                            .padding(10.dp),
-                        painter = painterResource(id = icon),
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.background
-                    )
-                }
+    AgeScaffold(modifier = Modifier.padding(padding), state = state, topBar = {
+        TopAppBar(title = {
+            Text(text = "${greeting(LocalTime.now())}${if (state.hideUserName) "" else state.userModel?.username?.ifBlank { "游客" } ?: "游客"}")
+        }, actions = {
+            Icon(
+                modifier = Modifier
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.secondary)
+                    .clickable(role = Role.Button, onClick = viewModel::changeThemeMode)
+                    .padding(10.dp),
+                painter = painterResource(id = icon),
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.background
             )
-        },
-        onShowSnackbar = onShowSnackbar,
-        onRefresh = { },
-        onErrorPositiveAction = {
+        })
+    }, onShowSnackbar = onShowSnackbar, onRefresh = { }, onErrorPositiveAction = {
 
-        },
-        onDismissErrorDialog = viewModel::hideError
+    }, onDismissErrorDialog = viewModel::hideError
     ) { paddingValues, _ ->
 
         val cardModifier = remember {
@@ -155,28 +150,24 @@ fun MineScreen(
                     text = "登录",
                     onClick = viewModel::getSpacaptcha
                 )
-                PrimaryBox(
-                    modifier = Modifier
-                        .weight(1f)
-                        .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
-                        .then(cardModifier),
+                PrimaryBox(modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
+                    .then(cardModifier),
                     iconId = AgeAnimeIcons.love,
                     text = "我的追番",
                     onClick = {
                         onNavigationClick("本地收藏")
-                    }
-                )
-                PrimaryBox(
-                    modifier = Modifier
-                        .weight(1f)
-                        .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
-                        .then(cardModifier),
+                    })
+                PrimaryBox(modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
+                    .then(cardModifier),
                     iconId = AgeAnimeIcons.history,
                     text = "历史观看",
                     onClick = {
                         onNavigationClick("历史记录")
-                    }
-                )
+                    })
             }
 
             Column(
@@ -206,34 +197,26 @@ fun MineScreen(
                     onCheckedChange = viewModel::changeAutoCheckUpdates
                 )
 
-                ItemWithAction(
-                    modifier = itemModifier,
-                    text = "播放设置",
-                    action = {
-                        playerSettingVisibility = true
-                    }
-                )
+                ItemWithAction(modifier = itemModifier, text = "播放设置", action = {
+                    playerSettingVisibility = true
+                })
 
-                ItemWithAction(
-                    modifier = itemModifier,
-                    text = "访问 GitHub 仓库",
-                    action = {
-                        context.openUrl(Api.AGE_GITHUB)
-                    }
-                )
+                ItemWithAction(modifier = itemModifier, text = "API设置", action = {
+                    apiSettingVisibility = true
+                })
+
+                ItemWithAction(modifier = itemModifier, text = "访问 GitHub 仓库", action = {
+                    context.openUrl(Api.AGE_GITHUB)
+                })
 
                 state.userModel?.takeIf { it.username.isNotBlank() }?.let {
 
-                    ItemWithAction(
-                        modifier = itemModifier,
+                    ItemWithAction(modifier = itemModifier,
                         text = "网络收藏",
-                        action = { onNavigationClick("网络收藏") }
-                    )
+                        action = { onNavigationClick("网络收藏") })
 
                     ItemWithNewPage(
-                        modifier = itemModifier,
-                        text = "退出登陆",
-                        onClick = viewModel::logout
+                        modifier = itemModifier, text = "退出登陆", onClick = viewModel::logout
                     )
                 }
 
@@ -275,8 +258,7 @@ fun MineScreen(
                             // 使用 Image 组件显示验证码图片，如果图片数据为空，则显示一个占位符文本
                             if (state.spacaptchaModel != null && state.spacaptchaModel!!.img.isNotBlank()) {
                                 val img = state.spacaptchaModel!!.img.replace(
-                                    "data:image/png;base64,",
-                                    ""
+                                    "data:image/png;base64,", ""
                                 ).toBitmap()
                                 AsyncImage(
                                     model = img,
@@ -287,8 +269,7 @@ fun MineScreen(
                                 )
                             } else {
                                 Text(
-                                    text = "加载中...",
-                                    modifier = Modifier.size(80.dp, 40.dp)
+                                    text = "加载中...", modifier = Modifier.size(80.dp, 40.dp)
                                 ) // 显示一个占位符文本，大小为 80dp x 40dp
                             }
                             // 使用 Spacer 组件创建一个间隔，宽度为 8dp
@@ -327,9 +308,7 @@ fun MineScreen(
                             )
                         } else {
                             viewModel.login(
-                                userName.value,
-                                passWork.value,
-                                captcha.value
+                                userName.value, passWork.value, captcha.value
                             )
                         }
                     }) { // 点击时触发登录的回调函数，并传入用户名、密码和验证码
@@ -346,15 +325,13 @@ fun MineScreen(
                 title = { Text("播放设置") },
                 text = {
                     Column {
-                        ItemWithSwitch(
-                            modifier = itemModifier,
+                        ItemWithSwitch(modifier = itemModifier,
                             text = "自动全屏",
                             checked = autoFullscreen,
                             onCheckedChange = {
                                 autoFullscreen = it
                                 Settings.autoFullscreen = it
-                            }
-                        )
+                            })
 
                         Spacer(modifier = Modifier.height(8.dp))
 
@@ -375,6 +352,43 @@ fun MineScreen(
                 },
                 confirmButton = {},
             )
+        }
+
+        if (apiSettingVisibility) {
+            AlertDialog(containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                onDismissRequest = { apiSettingVisibility = false },
+                title = { Text("API设置") },
+                text = {
+                    Column {
+                        Text("修改完后请重启AGE动漫,留空恢复默认")
+                        OutlinedTextField(
+                            value = apiUrl.value,
+                            onValueChange = apiUrl::value::set,
+                            label = { Text(text = "API地址") },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
+                },
+                confirmButton = {
+                    TextButton(onClick = {
+                        Settings.API_BASE_URL = apiUrl.value.ifBlank { Api.API_BASE_URL_V1 }
+                        apiSettingVisibility = false
+                        context.findActivity().restartApplication()
+                    }) {
+                        Text(text = "确定")
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = {
+                        Settings.API_BASE_URL = Api.API_BASE_URL_V2
+                        apiUrl.value = Api.API_BASE_URL_V2
+                        apiSettingVisibility = false
+                        context.findActivity().restartApplication()
+                    }) {
+                        Text(text = "设定为备用地址")
+                    }
+                })
+
         }
 
     }
@@ -405,8 +419,7 @@ private fun ItemWithSwitch(
                 style = MaterialTheme.typography.bodyMedium,
             )
             AnimatedSwitchButton(
-                modifier = Modifier.size(48.dp),
-                checked = checked
+                modifier = Modifier.size(48.dp), checked = checked
             )
         }
 
@@ -422,17 +435,15 @@ private fun PrimaryBox(
     onClick: () -> Unit,
 ) {
     Card(
-        modifier = modifier
-            .clickable(
-                interactionSource = rememberMutableInteractionSource(),
-                indication = null,
-                role = Role.Button,
-                onClick = onClick
-            )
+        modifier = modifier.clickable(
+            interactionSource = rememberMutableInteractionSource(),
+            indication = null,
+            role = Role.Button,
+            onClick = onClick
+        )
     ) {
         Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+            modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
         ) {
             Column(
                 verticalArrangement = Arrangement.spacedBy(2.dp),
@@ -472,8 +483,7 @@ private fun ItemWithNewPage(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = text,
-                style = MaterialTheme.typography.bodyMedium
+                text = text, style = MaterialTheme.typography.bodyMedium
             )
             Icon(
                 painter = painterResource(AgeAnimeIcons.arrowRight),
@@ -498,12 +508,10 @@ private fun ItemWithAction(
         contentAlignment = Alignment.Center,
     ) {
         Box(
-            modifier = Modifier.fillMaxWidth(),
-            contentAlignment = Alignment.CenterStart
+            modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterStart
         ) {
             Text(
-                text = text,
-                style = MaterialTheme.typography.bodyMedium
+                text = text, style = MaterialTheme.typography.bodyMedium
             )
         }
     }

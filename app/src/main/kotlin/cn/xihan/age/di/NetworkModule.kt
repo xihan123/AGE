@@ -6,6 +6,7 @@ import cn.xihan.age.util.Api
 import cn.xihan.age.util.JsoupService
 import cn.xihan.age.util.RemoteService
 import cn.xihan.age.util.SSLSocketClient
+import cn.xihan.age.util.Settings
 import cn.xihan.age.util.kJson
 import com.ihsanbal.logging.LoggingInterceptor
 import dagger.Module
@@ -121,7 +122,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideRemoteService(httpClient: HttpClient): RemoteService {
-        return provideKtorfit(httpClient, Api.API_BASE_URL).create()
+        return provideKtorfit(httpClient, Settings.API_BASE_URL).create()
     }
 
     @Provides

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
  */
 object Settings : IMMKVOwner by MMKVOwner(mmapID = "settings") {
 
+    var API_BASE_URL by mmkvString(default = Api.API_BASE_URL_V1)
     var autoCheckUpdate by mmkvBool(default = false)
 
     var autoFullscreen by mmkvBool(default = true)
