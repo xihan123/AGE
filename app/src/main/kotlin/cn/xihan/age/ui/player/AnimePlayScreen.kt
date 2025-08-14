@@ -261,6 +261,9 @@ fun AnimePlayScreen(
         }
         backDispatcher?.addCallback(backCallback)
 
+        val activity = context as? android.app.Activity
+        activity?.window?.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
         val orientationListener =
             object : OrientationEventListener(context, SensorManager.SENSOR_DELAY_NORMAL) {
                 override fun onOrientationChanged(angle: Int) {
@@ -285,6 +288,7 @@ fun AnimePlayScreen(
         onDispose {
             backCallback.remove()
             orientationListener.disable()
+            activity?.window?.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
 
     }
