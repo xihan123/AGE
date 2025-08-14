@@ -205,11 +205,12 @@ fun ErrorItem(
     modifier: Modifier = Modifier,
     errorMessage: String?, onRetryClick: () -> Unit = {},
 ) {
-    Box(modifier = modifier
-        .padding(16.dp)
-        .clickable {
-            onRetryClick()
-        }) {
+    Box(
+        modifier = modifier
+            .padding(16.dp)
+            .clickable {
+                onRetryClick()
+            }) {
         CoilImage(
             imageModel = { R.drawable.parsing_error_bg }, imageOptions = ImageOptions(
                 contentScale = ContentScale.Fit, alignment = Alignment.Center
@@ -248,9 +249,10 @@ fun HandleError(
         }
 
         is AgeException.InlineException -> {
-            ErrorItem(modifier = Modifier
-                .wrapContentSize()
-                .padding(8.dp),
+            ErrorItem(
+                modifier = Modifier
+                    .wrapContentSize()
+                    .padding(8.dp),
                 errorMessage = stringResource(id = R.string.error_empty),
                 onRetryClick = {
                     onPositiveAction.invoke(null)

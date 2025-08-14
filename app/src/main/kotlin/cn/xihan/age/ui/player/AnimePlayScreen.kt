@@ -72,7 +72,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -228,7 +227,7 @@ fun AnimePlayScreen(
             }
 
             is AnimePlayUiIntent.UpdateVideoProgress -> {
-                if(it.position > 2000) {
+                if (it.position > 2000) {
                     PopTip.show(
                         "已定位到上次观看位置 " + Utils.stringForTime(it.position), "从头开始播放"
                     ).setButton { _, _ ->
@@ -247,7 +246,7 @@ fun AnimePlayScreen(
         }
     }
 
-    val lifecycleOwner = LocalLifecycleOwner.current
+    val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
     val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
 
     DisposableEffect(Unit) {
@@ -377,7 +376,7 @@ fun AnimePlayScreen(
                 userScrollEnabled = true,
                 reverseLayout = false,
                 contentPadding = PaddingValues(0.dp),
-                beyondBoundsPageCount = 0,
+                beyondViewportPageCount = 0,
                 pageSize = PageSize.Fill,
                 flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
                 key = null,
@@ -663,16 +662,17 @@ private fun PlayerNeck(
                 )
 
             }
-            Box(modifier = Modifier
-                .width(if (isTablet) 80.dp else 72.dp)
-                .clickable(
-                    interactionSource = rememberMutableInteractionSource(),
-                    indication = null,
-                    role = Role.Switch,
-                    onClick = {
-                        onUpdateFollowed(isFollowed.not())
-                    }
-                ),
+            Box(
+                modifier = Modifier
+                    .width(if (isTablet) 80.dp else 72.dp)
+                    .clickable(
+                        interactionSource = rememberMutableInteractionSource(),
+                        indication = null,
+                        role = Role.Switch,
+                        onClick = {
+                            onUpdateFollowed(isFollowed.not())
+                        }
+                    ),
                 contentAlignment = Alignment.CenterStart
             ) {
                 Row(
@@ -953,13 +953,14 @@ fun AnimePlayListTab(
                 }
             }
 
-            HorizontalPager(modifier = Modifier,
+            HorizontalPager(
+                modifier = Modifier,
                 state = pagerState,
                 pageSpacing = 0.dp,
                 userScrollEnabled = true,
                 reverseLayout = false,
                 contentPadding = PaddingValues(0.dp),
-                beyondBoundsPageCount = 0,
+                beyondViewportPageCount = 0,
                 pageSize = PageSize.Fill,
                 flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
                 key = null,
@@ -1184,13 +1185,14 @@ fun AnimePlayListExpandAll(
                 }
 
 
-                HorizontalPager(modifier = Modifier.padding(top = 4.dp),
+                HorizontalPager(
+                    modifier = Modifier.padding(top = 4.dp),
                     state = pagerState,
                     pageSpacing = 0.dp,
                     userScrollEnabled = true,
                     reverseLayout = false,
                     contentPadding = PaddingValues(0.dp),
-                    beyondBoundsPageCount = 0,
+                    beyondViewportPageCount = 0,
                     pageSize = PageSize.Fill,
                     flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
                     key = null,

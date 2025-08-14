@@ -1,6 +1,12 @@
 pluginManagement {
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
         gradlePluginPortal()
     }
@@ -8,10 +14,13 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven("https://jitpack.io") {
+            content {
+                includeGroupByRegex("com\\.github.*")
+            }
+        }
         google()
         mavenCentral()
-        maven("https://jitpack.io")
-        maven("https://androidx.dev/storage/compose-compiler/repository/")
     }
 }
 

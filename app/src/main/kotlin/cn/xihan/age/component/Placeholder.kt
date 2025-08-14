@@ -99,10 +99,12 @@ fun Modifier.placeholder(
     }
     val transition = updateTransition(transitionState, "placeholder_crossfade")
 
-    val placeholderAlpha by transition.animateFloat(transitionSpec = placeholderFadeTransitionSpec,
+    val placeholderAlpha by transition.animateFloat(
+        transitionSpec = placeholderFadeTransitionSpec,
         label = "placeholder_fade",
         targetValueByState = { placeholderVisible -> if (placeholderVisible) 1f else 0f })
-    val contentAlpha by transition.animateFloat(transitionSpec = contentFadeTransitionSpec,
+    val contentAlpha by transition.animateFloat(
+        transitionSpec = contentFadeTransitionSpec,
         label = "content_fade",
         targetValueByState = { placeholderVisible -> if (placeholderVisible) 0f else 1f })
 

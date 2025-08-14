@@ -138,12 +138,14 @@ fun HomeScreen(
         ) {
 
             item("Carousel") {
-                Carousel(bannerList = state.bannerList,
+                Carousel(
+                    bannerList = state.bannerList,
                     onSlideClick = { it?.let { onAnimeClick(it) } })
             }
 
             item("Weekly Delivery List") {
-                WeeklyDeliveryList(weekItems = state.weekItems,
+                WeeklyDeliveryList(
+                    weekItems = state.weekItems,
                     onAnimeClick = { it?.let { onAnimeClick(it) } })
             }
 
@@ -186,7 +188,8 @@ private fun Carousel(
             val before = pagerState.currentPage
             delay(5.seconds)
             if (pagerState.currentPage == before) {
-                val target = if (pagerState.currentPage == bannerList.size - 1) 0 else pagerState.currentPage + 1
+                val target =
+                    if (pagerState.currentPage == bannerList.size - 1) 0 else pagerState.currentPage + 1
                 pagerState.animateScrollToPage(target)
             }
         }
@@ -200,14 +203,15 @@ private fun Carousel(
             state = pagerState,
             contentPadding = PaddingValues(0.dp),
             pageSize = PageSize.Fill,
-            beyondBoundsPageCount = 0,
+            beyondViewportPageCount = 0,
             pageSpacing = 0.dp,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             val index = it % bannerList.size
             Box(
                 Modifier
-                    .clickable(interactionSource = rememberMutableInteractionSource(),
+                    .clickable(
+                        interactionSource = rememberMutableInteractionSource(),
                         indication = null,
                         role = Role.Button,
                         onClick = { onSlideClick(bannerList[index]?.aID) })
@@ -313,7 +317,7 @@ private fun WeeklyDeliveryList(
             state = pagerState,
             contentPadding = PaddingValues(0.dp),
             pageSize = PageSize.Fill,
-            beyondBoundsPageCount = 0,
+            beyondViewportPageCount = 0,
             pageSpacing = 0.dp,
             verticalAlignment = Alignment.CenterVertically,
         ) {

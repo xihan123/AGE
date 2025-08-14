@@ -95,7 +95,8 @@ fun RankingScreen(
     AgeScaffold(
         state = state,
         topBar = {
-            CenterAlignedTopAppBar(title = {
+            CenterAlignedTopAppBar(
+                title = {
                 Text(text = stringResource(id = R.string.title_ranking))
             }, modifier = Modifier.fillMaxWidth(), actions = {
                 IconButton(onClick = {
@@ -175,7 +176,8 @@ fun RankingScreen(
                     selectedTabIndex = pagerState.currentPage
                 ) {
                     rankTitleList.forEachIndexed { index, s ->
-                        Tab(selected = pagerState.currentPage == index,
+                        Tab(
+                            selected = pagerState.currentPage == index,
                             onClick = { scope.launch { pagerState.animateScrollToPage(index) } },
                             content = {
                                 Text(
@@ -194,13 +196,14 @@ fun RankingScreen(
                 )
             } else {
                 state.rankingList.whatIfNotNullOrEmpty {
-                    HorizontalPager(modifier = Modifier,
+                    HorizontalPager(
+                        modifier = Modifier,
                         state = pagerState,
                         pageSpacing = 0.dp,
                         userScrollEnabled = true,
                         reverseLayout = false,
                         contentPadding = PaddingValues(0.dp),
-                        beyondBoundsPageCount = 0,
+                        beyondViewportPageCount = 0,
                         pageSize = PageSize.Fill,
                         flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
                         key = null,
@@ -216,7 +219,8 @@ fun RankingScreen(
                                 }
                             ) {
 
-                                items(state.rankingList[page].size,
+                                items(
+                                    state.rankingList[page].size,
                                     key = { state.rankingList[page][it].aID }) { index ->
                                     val item = state.rankingList[page][index]
                                     Ranking(rankModel = item, onAnimeClick = onAnimeClick)
@@ -238,9 +242,10 @@ fun RankingScreen(
                     )
                 ) {
 
-                    VerticalItems(modifier = Modifier
-                        .height(250.dp)
-                        .padding(20.dp),
+                    VerticalItems(
+                        modifier = Modifier
+                            .height(250.dp)
+                            .padding(20.dp),
                         data = Category.Year.options.map { it.first }) {
                         viewModel.changeYear(it)
                     }
@@ -261,7 +266,8 @@ fun Ranking(
         modifier = Modifier
             .fillMaxWidth()
             .padding(4.dp)
-            .clickable(interactionSource = interactionResource,
+            .clickable(
+                interactionSource = interactionResource,
                 indication = null,
                 role = Role.Button,
                 onClick = { onAnimeClick(rankModel.aID) }),

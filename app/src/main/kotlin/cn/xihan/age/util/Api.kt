@@ -31,7 +31,7 @@ import kotlinx.coroutines.flow.Flow
  */
 object Api {
 
-    const val API_BASE_URL_V1 = "https://ageapi.omwjhz.com:18888/v2/"
+    const val API_BASE_URL_V1 = "https://api.agedm.vip/v2/"
     const val API_BASE_URL_V2 = "https://api.agemys.org/v2/"
     const val JSOUP_BASE_URL = "https://www.agemys.org/"
     const val RELEASE_LATEST = "https://api.github.com/repos/xihan123/AGE/releases/latest"

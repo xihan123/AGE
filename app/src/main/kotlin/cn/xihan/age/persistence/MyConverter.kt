@@ -5,7 +5,6 @@ import androidx.room.TypeConverter
 import cn.xihan.age.model.FavoriteModel
 import cn.xihan.age.model.HistoryModel
 import cn.xihan.age.util.kJson
-import kotlinx.serialization.encodeToString
 
 /**
  * @项目名 : AGE动漫

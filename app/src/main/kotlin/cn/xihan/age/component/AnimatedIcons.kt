@@ -25,7 +25,8 @@ fun AnimatedFollowIcon(
         ), label = ""
     )
 
-    LottieAnimation(modifier = modifier,
+    LottieAnimation(
+        modifier = modifier,
         composition = followIcon,
         progress = { if (isFollowed) animationProgress else 0f })
 }
@@ -46,7 +47,8 @@ fun AnimatedRadioButton(
         label = ""
     )
 
-    LottieAnimation(modifier = modifier,
+    LottieAnimation(
+        modifier = modifier,
         composition = radioButton,
         progress = { if (selected) selectProgress else 0f })
 }

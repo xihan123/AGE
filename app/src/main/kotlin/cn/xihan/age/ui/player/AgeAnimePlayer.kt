@@ -173,7 +173,6 @@ import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
 import okhttp3.OkHttpClient
 import java.io.File
-import java.lang.Math.abs
 import java.util.Objects
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
@@ -408,100 +407,101 @@ fun GestureBox(modifier: Modifier = Modifier) {
     val controlsVisible by controller.collect { controlsVisible }
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .pointerInput(controller) {
-            var wasPlaying = true
-            var totalOffset = Offset.Zero
-            var diffTime = -1f
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .pointerInput(controller) {
+                var wasPlaying = true
+                var totalOffset = Offset.Zero
+                var diffTime = -1f
 
-            var duration: Long = 0
-            var currentPosition: Long = 0
+                var duration: Long = 0
+                var currentPosition: Long = 0
 
 
-            var seekJob: Job? = null
+                var seekJob: Job? = null
 
-            fun resetState() {
-                totalOffset = Offset.Zero
-                controller.setDraggingProgress(null)
-            }
-
-            detectMediaPlayerGesture(
-                onDoubleTap = { doubleTapPosition ->
-                    when {
-                        doubleTapPosition.x < size.width * 0.4f -> {
-                            controller.quickSeekRewind()
-                        }
-
-                        doubleTapPosition.x > size.width * 0.6f -> {
-                            controller.quickSeekForward()
-                        }
-
-                        else -> {
-                            controller.playPauseToggle()
-                        }
-                    }
-                },
-                onTap = {
-                    if (controlsVisible) controller.hideControls() else controller.showControls()
-                },
-                onHorizontalDragStart = { offset ->
-                    wasPlaying = controller.currentState { it.isPlaying }
-                    controller.pause()
-
-                    currentPosition = controller.currentState { it.position }
-                    duration = controller.currentState { it.duration }
-
-                    resetState()
-                },
-                onHorizontalDragEnd = {
-                    if (wasPlaying) controller.play()
-                    resetState()
-                },
-                onHorizontalDrag = { dragAmount: Float ->
-                    seekJob?.cancel()
-
-                    totalOffset += Offset(x = dragAmount, y = 0f)
-
-                    val diff = totalOffset.x
-
-                    diffTime = if (duration <= 60_000) {
-                        duration.toFloat() * diff / size.width.toFloat()
-                    } else {
-                        60_000.toFloat() * diff / size.width.toFloat()
-                    }
-
-                    var finalTime = currentPosition + diffTime
-                    if (finalTime < 0) {
-                        finalTime = 0f
-                    } else if (finalTime > duration) {
-                        finalTime = duration.toFloat()
-                    }
-                    diffTime = finalTime - currentPosition
-
-                    controller.setDraggingProgress(
-                        DraggingProgress(
-                            finalTime = finalTime,
-                            diffTime = diffTime
-                        )
-                    )
-
-                    seekJob = coroutineScope.launch {
-                        delay(200)
-                        controller.seekTo(finalTime.toLong())
-                    }
-                },
-                onVerticalDragStart = { offset ->
-
-                },
-                onVerticalDragEnd = {
-                },
-                onVerticalDrag = { dragAmount: Float ->
-
+                fun resetState() {
+                    totalOffset = Offset.Zero
+                    controller.setDraggingProgress(null)
                 }
-            )
-        }
-        .then(modifier))
+
+                detectMediaPlayerGesture(
+                    onDoubleTap = { doubleTapPosition ->
+                        when {
+                            doubleTapPosition.x < size.width * 0.4f -> {
+                                controller.quickSeekRewind()
+                            }
+
+                            doubleTapPosition.x > size.width * 0.6f -> {
+                                controller.quickSeekForward()
+                            }
+
+                            else -> {
+                                controller.playPauseToggle()
+                            }
+                        }
+                    },
+                    onTap = {
+                        if (controlsVisible) controller.hideControls() else controller.showControls()
+                    },
+                    onHorizontalDragStart = { offset ->
+                        wasPlaying = controller.currentState { it.isPlaying }
+                        controller.pause()
+
+                        currentPosition = controller.currentState { it.position }
+                        duration = controller.currentState { it.duration }
+
+                        resetState()
+                    },
+                    onHorizontalDragEnd = {
+                        if (wasPlaying) controller.play()
+                        resetState()
+                    },
+                    onHorizontalDrag = { dragAmount: Float ->
+                        seekJob?.cancel()
+
+                        totalOffset += Offset(x = dragAmount, y = 0f)
+
+                        val diff = totalOffset.x
+
+                        diffTime = if (duration <= 60_000) {
+                            duration.toFloat() * diff / size.width.toFloat()
+                        } else {
+                            60_000.toFloat() * diff / size.width.toFloat()
+                        }
+
+                        var finalTime = currentPosition + diffTime
+                        if (finalTime < 0) {
+                            finalTime = 0f
+                        } else if (finalTime > duration) {
+                            finalTime = duration.toFloat()
+                        }
+                        diffTime = finalTime - currentPosition
+
+                        controller.setDraggingProgress(
+                            DraggingProgress(
+                                finalTime = finalTime,
+                                diffTime = diffTime
+                            )
+                        )
+
+                        seekJob = coroutineScope.launch {
+                            delay(200)
+                            controller.seekTo(finalTime.toLong())
+                        }
+                    },
+                    onVerticalDragStart = { offset ->
+
+                    },
+                    onVerticalDragEnd = {
+                    },
+                    onVerticalDrag = { dragAmount: Float ->
+
+                    }
+                )
+            }
+            .then(modifier))
 }
 
 @Composable
@@ -872,7 +872,10 @@ private fun AnimatedPlayPauseButton(
     AnimatedContent(
         targetState = isPaused,
         transitionSpec = {
-            (scaleIn(tween(delayMillis = 100), 0.8f) + fadeIn(tween(delayMillis = 100))).togetherWith(
+            (scaleIn(
+                tween(delayMillis = 100),
+                0.8f
+            ) + fadeIn(tween(delayMillis = 100))).togetherWith(
                 scaleOut(targetScale = 0.7f) + fadeOut()
             )
         }, label = ""
@@ -1059,28 +1062,29 @@ fun MySeekBar(
                                 onSeek(currentProgress.toLong())
                             })
 
-                            Row(modifier = Modifier
-                                .matchParentSize()
-                                .draggable(
-                                    state = draggableState,
-                                    orientation = Orientation.Horizontal,
-                                    startDragImmediately = true,
-                                    onDragStarted = { downPosition ->
-                                        onGoingDrag = true
-                                        indicatorOffsetByDragState =
-                                            indicatorOffsetByDragState.copy(x = downPosition.x)
-                                        val newProgress =
-                                            (indicatorOffsetByDragState.x / boxWidth) * max
-                                        onSeekStarted(newProgress.toLong())
-                                    },
-                                    onDragStopped = {
-                                        val newProgress =
-                                            (indicatorOffsetByDragState.x / boxWidth) * max
-                                        onSeekStopped(newProgress.toLong())
-                                        indicatorOffsetByDragState = Offset.Zero
-                                        onGoingDrag = false
-                                    }
-                                )
+                            Row(
+                                modifier = Modifier
+                                    .matchParentSize()
+                                    .draggable(
+                                        state = draggableState,
+                                        orientation = Orientation.Horizontal,
+                                        startDragImmediately = true,
+                                        onDragStarted = { downPosition ->
+                                            onGoingDrag = true
+                                            indicatorOffsetByDragState =
+                                                indicatorOffsetByDragState.copy(x = downPosition.x)
+                                            val newProgress =
+                                                (indicatorOffsetByDragState.x / boxWidth) * max
+                                            onSeekStarted(newProgress.toLong())
+                                        },
+                                        onDragStopped = {
+                                            val newProgress =
+                                                (indicatorOffsetByDragState.x / boxWidth) * max
+                                            onSeekStopped(newProgress.toLong())
+                                            indicatorOffsetByDragState = Offset.Zero
+                                            onGoingDrag = false
+                                        }
+                                    )
                             ) {
 
                                 Indicator(
@@ -1133,29 +1137,30 @@ fun MySeekBar(
                             onSeek(currentProgress.toLong())
                         })
 
-                        Row(modifier = Modifier
-                            .matchParentSize()
-                            .zIndex(1f)
-                            .draggable(
-                                state = draggableState,
-                                orientation = Orientation.Horizontal,
-                                startDragImmediately = true,
-                                onDragStarted = { downPosition ->
-                                    onGoingDrag = true
-                                    indicatorOffsetByDragState =
-                                        indicatorOffsetByDragState.copy(x = downPosition.x)
-                                    val newProgress =
-                                        (indicatorOffsetByDragState.x / boxWidth) * max
-                                    onSeekStarted(newProgress.toLong())
-                                },
-                                onDragStopped = {
-                                    val newProgress =
-                                        (indicatorOffsetByDragState.x / boxWidth) * max
-                                    onSeekStopped(newProgress.toLong())
-                                    indicatorOffsetByDragState = Offset.Zero
-                                    onGoingDrag = false
-                                }
-                            )
+                        Row(
+                            modifier = Modifier
+                                .matchParentSize()
+                                .zIndex(1f)
+                                .draggable(
+                                    state = draggableState,
+                                    orientation = Orientation.Horizontal,
+                                    startDragImmediately = true,
+                                    onDragStarted = { downPosition ->
+                                        onGoingDrag = true
+                                        indicatorOffsetByDragState =
+                                            indicatorOffsetByDragState.copy(x = downPosition.x)
+                                        val newProgress =
+                                            (indicatorOffsetByDragState.x / boxWidth) * max
+                                        onSeekStarted(newProgress.toLong())
+                                    },
+                                    onDragStopped = {
+                                        val newProgress =
+                                            (indicatorOffsetByDragState.x / boxWidth) * max
+                                        onSeekStopped(newProgress.toLong())
+                                        indicatorOffsetByDragState = Offset.Zero
+                                        onGoingDrag = false
+                                    }
+                                )
                         ) {
                             Indicator(
                                 modifier = Modifier

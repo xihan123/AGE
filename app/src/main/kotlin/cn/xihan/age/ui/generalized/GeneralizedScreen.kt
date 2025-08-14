@@ -139,25 +139,29 @@ fun GeneralizedScreen(
                             },
                             content = {
                                 if (cn.xihan.age.BuildConfig.DEBUG) {
-                                    MyDropdownMenuItem(topAppBarExpanded = topAppBarExpanded,
+                                    MyDropdownMenuItem(
+                                        topAppBarExpanded = topAppBarExpanded,
                                         text = { Text("设置全部收藏") },
                                         onClick = {
                                             viewModel.changeAllFavoriteState(true)
                                         })
                                 }
-                                MyDropdownMenuItem(topAppBarExpanded = topAppBarExpanded,
+                                MyDropdownMenuItem(
+                                    topAppBarExpanded = topAppBarExpanded,
                                     text = { Text(stringResource(id = R.string.clear_collect)) },
                                     onClick = {
                                         viewModel.changeAllFavoriteState(false)
                                     })
 
-                                MyDropdownMenuItem(topAppBarExpanded = topAppBarExpanded,
+                                MyDropdownMenuItem(
+                                    topAppBarExpanded = topAppBarExpanded,
                                     text = { Text(stringResource(R.string.default_sort)) },
                                     onClick = {
                                         viewModel.changeLocalFavoriteType(0)
                                     })
 
-                                MyDropdownMenuItem(topAppBarExpanded = topAppBarExpanded,
+                                MyDropdownMenuItem(
+                                    topAppBarExpanded = topAppBarExpanded,
                                     text = { Text(stringResource(R.string.reverse_sort)) },
                                     onClick = {
                                         viewModel.changeLocalFavoriteType(1)
@@ -506,7 +510,8 @@ private fun HistoryItem(
                     .height(182.dp)
                     .padding(8.dp)
             ) {
-                CoilImage(modifier = Modifier.fillMaxSize(),
+                CoilImage(
+                    modifier = Modifier.fillMaxSize(),
                     imageModel = { historyModel.animeCover },
                     imageOptions = ImageOptions(
                         contentScale = ContentScale.Crop, alignment = Alignment.Center

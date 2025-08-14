@@ -15,9 +15,6 @@ import com.drake.channel.sendTag
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
-import org.orbitmvi.orbit.syntax.simple.intent
-import org.orbitmvi.orbit.syntax.simple.reduce
-import org.orbitmvi.orbit.syntax.simple.repeatOnSubscription
 import javax.inject.Inject
 
 /**
@@ -80,18 +77,19 @@ class MineScreenViewModel @Inject constructor(
         remoteRepository.login(username, password, spacaptcha, key = state.spacaptchaModel!!.key)
             .error(this@MineScreenViewModel)
             .onEach {
-                it.takeIf { it.code == 200 }?.takeIf { it1 -> "登录成功" in it1.message }?.let { it1 ->
-                    with(it1) {
-                        localRepository.updateUser(data)
-                        reduce {
-                            state.copy(
-                                userModel = data,
-                                showLoginDialog = false
-                            )
-                        }
+                it.takeIf { it.code == 200 }?.takeIf { it1 -> "登录成功" in it1.message }
+                    ?.let { it1 ->
+                        with(it1) {
+                            localRepository.updateUser(data)
+                            reduce {
+                                state.copy(
+                                    userModel = data,
+                                    showLoginDialog = false
+                                )
+                            }
 
+                        }
                     }
-                }
                 showError(
                     AgeException.AlertException(
                         AlertDialogModel(

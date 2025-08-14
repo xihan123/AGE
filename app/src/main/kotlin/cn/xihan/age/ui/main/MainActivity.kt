@@ -116,7 +116,8 @@ class MainActivity : AppCompatActivity() {
             },
             contentWindowInsets = WindowInsets(0),
         ) {
-            NavHost(navController = navController,
+            NavHost(
+                navController = navController,
                 startDestination = TopLevelNavRoute,
                 contentAlignment = Alignment.Center,
                 enterTransition = { slideInHorizontally { it } },

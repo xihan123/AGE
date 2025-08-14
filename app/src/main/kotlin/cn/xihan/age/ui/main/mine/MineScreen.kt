@@ -38,7 +38,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -96,7 +95,8 @@ fun MineScreen(
     var autoFullscreen by rememberSavableMutableStateOf(value = Settings.autoFullscreen)
     var playSkipTime by rememberSavableMutableStateOf(value = Settings.playSkipTime)
 
-    AgeScaffold(modifier = Modifier.padding(padding), state = state, topBar = {
+    AgeScaffold(
+        modifier = Modifier.padding(padding), state = state, topBar = {
         TopAppBar(title = {
             Text(text = "${greeting(LocalTime.now())}${if (state.hideUserName) "" else state.userModel?.username?.ifBlank { "游客" } ?: "游客"}")
         }, actions = {
@@ -150,19 +150,21 @@ fun MineScreen(
                     text = "登录",
                     onClick = viewModel::getSpacaptcha
                 )
-                PrimaryBox(modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
-                    .then(cardModifier),
+                PrimaryBox(
+                    modifier = Modifier
+                        .weight(1f)
+                        .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
+                        .then(cardModifier),
                     iconId = AgeAnimeIcons.love,
                     text = "我的追番",
                     onClick = {
                         onNavigationClick("本地收藏")
                     })
-                PrimaryBox(modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
-                    .then(cardModifier),
+                PrimaryBox(
+                    modifier = Modifier
+                        .weight(1f)
+                        .aspectRatio(if (aspectRadio > 1.8) 1.25f else 1.8f)
+                        .then(cardModifier),
                     iconId = AgeAnimeIcons.history,
                     text = "历史观看",
                     onClick = {
@@ -211,7 +213,8 @@ fun MineScreen(
 
                 state.userModel?.takeIf { it.username.isNotBlank() }?.let {
 
-                    ItemWithAction(modifier = itemModifier,
+                    ItemWithAction(
+                        modifier = itemModifier,
                         text = "网络收藏",
                         action = { onNavigationClick("网络收藏") })
 
@@ -325,7 +328,8 @@ fun MineScreen(
                 title = { Text("播放设置") },
                 text = {
                     Column {
-                        ItemWithSwitch(modifier = itemModifier,
+                        ItemWithSwitch(
+                            modifier = itemModifier,
                             text = "自动全屏",
                             checked = autoFullscreen,
                             onCheckedChange = {
@@ -355,7 +359,8 @@ fun MineScreen(
         }
 
         if (apiSettingVisibility) {
-            AlertDialog(containerColor = MaterialTheme.colorScheme.surfaceVariant,
+            AlertDialog(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant,
                 onDismissRequest = { apiSettingVisibility = false },
                 title = { Text("API设置") },
                 text = {

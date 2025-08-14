@@ -4,7 +4,6 @@ import android.os.Parcelable
 import com.tencent.mmkv.MMKV
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlin.properties.ReadOnlyProperty
 import kotlin.properties.ReadWriteProperty

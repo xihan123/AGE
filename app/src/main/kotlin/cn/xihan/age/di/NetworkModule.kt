@@ -7,6 +7,8 @@ import cn.xihan.age.util.JsoupService
 import cn.xihan.age.util.RemoteService
 import cn.xihan.age.util.SSLSocketClient
 import cn.xihan.age.util.Settings
+import cn.xihan.age.util.createJsoupService
+import cn.xihan.age.util.createRemoteService
 import cn.xihan.age.util.kJson
 import com.ihsanbal.logging.LoggingInterceptor
 import dagger.Module
@@ -14,7 +16,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import de.jensklingenberg.ktorfit.Ktorfit
-import de.jensklingenberg.ktorfit.converter.builtin.FlowConverterFactory
+import de.jensklingenberg.ktorfit.converter.FlowConverterFactory
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.UserAgent
@@ -122,13 +124,13 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideRemoteService(httpClient: HttpClient): RemoteService {
-        return provideKtorfit(httpClient, Settings.API_BASE_URL).create()
+        return provideKtorfit(httpClient, Settings.API_BASE_URL).createRemoteService()
     }
 
     @Provides
     @Singleton
     fun provideJsoupService(httpClient: HttpClient): JsoupService {
-        return provideKtorfit(httpClient, Api.JSOUP_BASE_URL).create()
+        return provideKtorfit(httpClient, Api.JSOUP_BASE_URL).createJsoupService()
     }
 
 }

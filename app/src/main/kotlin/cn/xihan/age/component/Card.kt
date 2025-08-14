@@ -46,10 +46,12 @@ fun NarrowAnimeCard(
     subTitle: String = anime.newTitle,
     onClick: (Int) -> Unit
 ) {
-    Column(modifier = modifier.clickable(interactionSource = rememberMutableInteractionSource(),
-        indication = null,
-        role = Role.Button,
-        onClick = { onClick(anime.aID) }), verticalArrangement = Arrangement.spacedBy(8.dp)
+    Column(
+        modifier = modifier.clickable(
+            interactionSource = rememberMutableInteractionSource(),
+            indication = null,
+            role = Role.Button,
+            onClick = { onClick(anime.aID) }), verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Box(Modifier.clip(MaterialTheme.shapes.extraSmall)) {
             AnimeImage(anime.picSmall)
@@ -88,7 +90,8 @@ fun ExpandedAnimeCard(
     onClick: (Int) -> Unit,
 ) {
     Column(
-        modifier = modifier.clickable(interactionSource = rememberMutableInteractionSource(),
+        modifier = modifier.clickable(
+            interactionSource = rememberMutableInteractionSource(),
             indication = null,
             role = Role.Button,
             onClick = { onClick(anime.aID) }),

@@ -37,7 +37,6 @@ import androidx.paging.compose.LazyPagingItems
 import cn.xihan.age.model.WeekItem
 import com.kongzue.dialogx.DialogX
 import com.skydoves.whatif.whatIfNotNullOrEmpty
-import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import java.text.SimpleDateFormat
@@ -45,6 +44,8 @@ import java.util.Date
 import java.util.Formatter
 import java.util.Locale
 import kotlin.system.exitProcess
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
 /**
  * @项目名 : AGE动漫
@@ -83,7 +84,8 @@ inline fun <T : Any> LazyGridScope.items(
     noinline contentType: (item: T?) -> Any? = { null },
     crossinline itemContent: @Composable LazyGridItemScope.(item: T?) -> Unit
 ) {
-    items(count = items.itemCount, key = if (key == null) null else { index ->
+    items(
+        count = items.itemCount, key = if (key == null) null else { index ->
         val item = items.peek(index)
         if (item == null) {
             MyPagingPlaceholderKey(index)
@@ -249,8 +251,9 @@ object Utils {
     /**
      * 获取当前是星期?  1-7
      */
+    @OptIn(ExperimentalTime::class)
     fun getWeekOfDate(): Int = runCatching {
-        Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).dayOfWeek.value
+        Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).dayOfWeek.ordinal
     }.getOrElse { 1 }
 
     /**

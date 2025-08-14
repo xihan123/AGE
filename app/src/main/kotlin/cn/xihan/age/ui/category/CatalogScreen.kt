@@ -242,10 +242,11 @@ fun FiltersBar(
                 enter = fadeIn(),
                 exit = fadeOut(),
             ) {
-                Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.background.copy(alpha = 0.1f))
-                    .pointerInput(Unit) { detectTapGestures { drawer = null } })
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background.copy(alpha = 0.1f))
+                        .pointerInput(Unit) { detectTapGestures { drawer = null } })
             }
             for (category in mainCategories) {
                 AnimatedDrawer(drawer == category) {

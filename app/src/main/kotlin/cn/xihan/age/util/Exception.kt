@@ -3,6 +3,12 @@ package cn.xihan.age.util
 import android.nfc.Tag
 import cn.xihan.age.base.BaseViewModel
 import cn.xihan.age.model.AlertDialogModel
+import cn.xihan.age.util.ExceptionType.ALERT_DIALOG
+import cn.xihan.age.util.ExceptionType.INLINE
+import cn.xihan.age.util.ExceptionType.ON_PAGE
+import cn.xihan.age.util.ExceptionType.REDIRECT
+import cn.xihan.age.util.ExceptionType.SNACK
+import cn.xihan.age.util.ExceptionType.TOAST
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.catch
