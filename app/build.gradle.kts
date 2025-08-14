@@ -5,6 +5,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlinCompiler)
     alias(libs.plugins.kotlinKsp)
     alias(libs.plugins.kotlinParcelize)
     alias(libs.plugins.kotlinSerialization)
@@ -18,12 +19,12 @@ val keystoreProperties = Properties()
 keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
 val repo = jgit.repo()
-val commitCount = (repo?.commitCount("refs/remotes/origin/master") ?: 2023) + 2023
+val commitCount = (repo?.commitCount("refs/remotes/origin/master") ?: 2024) + 2024
 val latestTag = repo?.latestTag?.removePrefix("v") ?: "1.0.1-SNAPSHOT"
 
 val verCode by extra(commitCount)
 val verName by extra(latestTag)
-val androidTargetSdkVersion by extra(34)
+val androidTargetSdkVersion by extra(36)
 val androidMinSdkVersion by extra(26)
 
 android {
@@ -145,8 +146,6 @@ android {
         buildConfig = true
     }
 
-    composeOptions.kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-
     hilt.enableAggregatingTask = true
 
     packaging {
@@ -203,7 +202,7 @@ dependencies {
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.lottie.compose)
     implementation(libs.ktorfit.lib)
-    ksp(libs.ktorfit.ksp)
+    implementation(libs.ktorfit.converters.flow )
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.logging)
