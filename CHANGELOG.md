@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.4](https://github.com/xihan123/AGE/compare/v1.0.3...v1.0.4) (2025-08-14)
+
+
+### Features
+
+* **player:** 添加视频播放时保持屏幕常亮的功能 ([e31fd28](https://github.com/xihan123/AGE/commit/e31fd28054283d306083dc898091ff856d65700b))
+
+
+### Miscellaneous
+
+* **master:** release 1.0.3 ([dab573e](https://github.com/xihan123/AGE/commit/dab573e7404bd6dfb630e95907c576925120cc85))
+* **master:** release 1.0.3 ([3d4c1b9](https://github.com/xihan123/AGE/commit/3d4c1b947589f858d7da9729b04a14f37ae1fa52))
+* **master:** release 1.0.3 ([6e5c98e](https://github.com/xihan123/AGE/commit/6e5c98e73a2613e8188f25973980607792315686))
+
 ## [1.0.3](https://github.com/xihan123/AGE/compare/v1.0.3...v1.0.3) (2025-08-14)
 
 
