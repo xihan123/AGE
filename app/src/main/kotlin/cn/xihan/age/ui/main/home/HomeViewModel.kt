@@ -10,7 +10,6 @@ import cn.xihan.age.model.WeekItem
 import cn.xihan.age.repository.RemoteRepository
 import cn.xihan.age.util.AgeException
 import cn.xihan.age.util.error
-import cn.xihan.age.util.kJson
 import cn.xihan.age.util.nullList
 import cn.xihan.age.util.nullWeekMap
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -60,7 +59,9 @@ class HomeViewModel @Inject constructor(
                         )
                     }
 
-                    is String -> reduce { state.copy(bannerList = kJson.decodeFromString(it)) }
+                    is List<*> -> reduce {
+                        state.copy(bannerList = it.filterIsInstance<Banner.BannerItemModel>())
+                    }
                 }
                 reduce { state.copy(refreshing = false, loading = false) }
             }

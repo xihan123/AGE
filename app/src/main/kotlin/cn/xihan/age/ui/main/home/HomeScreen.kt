@@ -180,6 +180,8 @@ fun HomeScreen(
 private fun Carousel(
     bannerList: List<Banner.BannerItemModel?>, onSlideClick: (Int?) -> Unit
 ) {
+    if (bannerList.isEmpty()) return
+
     val pagerState =
         rememberPagerState(0, pageCount = bannerList::size)
 
@@ -207,7 +209,7 @@ private fun Carousel(
             pageSpacing = 0.dp,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            val index = it % bannerList.size
+            val index = Math.floorMod(it, bannerList.size)
             Box(
                 Modifier
                     .clickable(
@@ -261,13 +263,14 @@ private fun Carousel(
                 .padding(end = 15.dp, bottom = 12.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
+            val currentPage = Math.floorMod(pagerState.currentPage, bannerList.size)
             repeat(bannerList.size) {
                 Box(
                     Modifier
                         .size(8.dp)
-                        .padding(if (pagerState.currentPage % bannerList.size == it) 0.dp else 1.dp)
+                        .padding(if (currentPage == it) 0.dp else 1.dp)
                         .background(
-                            color = if (pagerState.currentPage % bannerList.size == it) basicWhite.copy(
+                            color = if (currentPage == it) basicWhite.copy(
                                 0.9f
                             )
                             else basicWhite.copy(0.4f), shape = CircleShape
@@ -283,14 +286,16 @@ private fun Carousel(
 private fun WeeklyDeliveryList(
     weekItems: Map<Int, List<WeekItem?>>, onAnimeClick: (Int?) -> Unit
 ) {
-    val pagerState = rememberPagerState(
-        initialPage = Utils.getWeekOfDate().minus(1), pageCount = weekItems::size
-    )
     val weekTitleList by lazy {
         arrayListOf(
             "周一", "周二", "周三", "周四", "周五", "周六", "周日"
         )
     }
+    val pageCount = weekTitleList.size
+    val pagerState = rememberPagerState(
+        initialPage = Utils.getWeekOfDate().coerceIn(0, pageCount - 1),
+        pageCount = { pageCount }
+    )
     val coroutineScope = rememberCoroutineScope()
     Column {
 
@@ -321,9 +326,9 @@ private fun WeeklyDeliveryList(
             pageSpacing = 0.dp,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            val list = if (it == 6) weekItems[0] else weekItems[it + 1]
+            val list = (if (it == 6) weekItems[0] else weekItems[it + 1]).orEmpty()
             Column {
-                repeat(list!!.size) { index ->
+                repeat(list.size) { index ->
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()

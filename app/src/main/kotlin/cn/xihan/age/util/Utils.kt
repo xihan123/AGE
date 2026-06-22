@@ -249,7 +249,7 @@ fun Activity.restartApplication() = packageManager.getLaunchIntentForPackage(pac
 object Utils {
 
     /**
-     * 获取当前是星期?  1-7
+     * 获取当前是星期几，周一到周日对应 0-6
      */
     @OptIn(ExperimentalTime::class)
     fun getWeekOfDate(): Int = runCatching {
