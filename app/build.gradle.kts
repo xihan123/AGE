@@ -154,6 +154,7 @@ dependencies {
     implementation(libs.dagger.hilt.android)
 //    implementation(libs.hilt.work)
     implementation(libs.hilt.navigation.compose)
+    ksp(libs.kotlin.metadata.jvm)
     ksp(libs.dagger.hilt.compiler)
 //    kapt(libs.hilt.compiler)
     implementation(libs.dialogx) {
