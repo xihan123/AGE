@@ -2,6 +2,7 @@ package cn.xihan.age.util
 
 
 import cn.xihan.age.model.AnimeDetailModel
+import cn.xihan.age.model.Banner
 import cn.xihan.age.model.CatalogModel
 import cn.xihan.age.model.CommentResponseModel
 import cn.xihan.age.model.GeneralizedResponseModel
@@ -31,9 +32,9 @@ import kotlinx.coroutines.flow.Flow
  */
 object Api {
 
-    const val API_BASE_URL_V1 = "https://api.agedm.vip/v2/"
-    const val API_BASE_URL_V2 = "https://api.agemys.org/v2/"
-    const val JSOUP_BASE_URL = "https://www.agemys.org/"
+    const val API_BASE_URL_V1 = "https://ageapi.omwjhz.com:18888/v2/"
+    const val API_BASE_URL_V2 = "https://api.agedm.io/v2/"
+    const val JSOUP_BASE_URL = "https://www.agedm.io/"
     const val RELEASE_LATEST = "https://api.github.com/repos/xihan123/AGE/releases/latest"
     const val AGE_GITHUB = "https://github.com/xihan123/AGE"
 
@@ -54,7 +55,7 @@ interface RemoteService {
      * 获取轮播图模型
      */
     @GET("slipic")
-    fun getBannerModel(): Flow<String>
+    fun getBannerModel(): Flow<List<Banner.BannerItemModel>>
 
     @GET("search")
     suspend fun getSearchModel(
