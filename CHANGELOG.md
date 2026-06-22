@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.5](https://github.com/xihan123/AGE/compare/v1.0.4...v1.0.5) (2026-06-22)
+
+
+### Features
+
+* **api:** 更新API接口配置和轮播图数据结构 ([7ac46c0](https://github.com/xihan123/AGE/commit/7ac46c0a8f431a7a30101fe006391a41a6a34663))
+
+
+### Bug Fixes
+
+* **home:** 修复首页轮播图和周播列表显示问题 ([be26765](https://github.com/xihan123/AGE/commit/be26765a2c1b6a56514124e2d85b4de3a3ecfd3c))
+
+
+### Miscellaneous
+
+* **build:** 更新依赖版本并优化构建配置 ([30220e0](https://github.com/xihan123/AGE/commit/30220e0c98c8b695a9fe34ed30ccad78755d41cb))
+* **gradle:** 升级 Gradle 版本到 9.6.0 ([4274da3](https://github.com/xihan123/AGE/commit/4274da3a03d0df4744907148b0514169aa6bb56f))
+* **release:** 更新发布版本号至 1.0.5 ([7c6a7fa](https://github.com/xihan123/AGE/commit/7c6a7fa8519443c279c84a50df14f31d8a891280))
+
 ## [1.0.4](https://github.com/xihan123/AGE/compare/v1.0.3...v1.0.4) (2025-08-14)
 
 
