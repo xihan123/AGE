@@ -4,7 +4,6 @@ import java.util.Properties
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.kotlinCompiler)
     alias(libs.plugins.kotlinKsp)
     alias(libs.plugins.kotlinParcelize)
@@ -24,18 +23,12 @@ val latestTag = repo?.latestTag?.removePrefix("v") ?: "1.0.1-SNAPSHOT"
 
 val verCode by extra(commitCount)
 val verName by extra(latestTag)
-val androidTargetSdkVersion by extra(36)
+val androidTargetSdkVersion by extra(37)
 val androidMinSdkVersion by extra(26)
 
 android {
     namespace = "cn.xihan.age"
     compileSdk = androidTargetSdkVersion
-
-    androidResources.additionalParameters += arrayOf(
-        "--allow-reserved-package-id",
-        "--package-id",
-        "0x64"
-    )
 
     signingConfigs {
         create("xihantest") {
@@ -49,9 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "cn.xihan.age"
         minSdk = androidMinSdkVersion
-        targetSdk = androidTargetSdkVersion
         versionCode = verCode
         versionName = verName
 
@@ -60,18 +51,7 @@ android {
 
         buildConfigField("long", "BUILD_TIMESTAMP", "${System.currentTimeMillis()}L")
 
-        ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
-            arg("room.incremental", "true")
-            arg("room.expandProjection", "true")
-            arg("dagger.hilt.disableModulesHaveInstallInCheck", "true")
-            arg("Ktorfit_Errors", "1")
-        }
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
@@ -84,53 +64,6 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
-
-            applicationVariants.all {
-                outputs.all {
-                    this as com.android.build.gradle.internal.api.ApkVariantOutputImpl
-                    if (buildType.name != "debug" && outputFileName.endsWith(".apk")) {
-                        val apkName = "AGE-release_${verName}_$verCode.apk"
-                        outputFileName = apkName
-                    }
-                }
-                tasks.configureEach {
-                    var maybeNeedCopy = false
-                    if (name.startsWith("assembleRelease")) {
-                        maybeNeedCopy = true
-                    }
-                    if (maybeNeedCopy) {
-                        doLast {
-                            this@all.outputs.all {
-                                this as com.android.build.gradle.internal.api.ApkVariantOutputImpl
-                                if (buildType.name != "debug" && outputFileName.endsWith(".apk")) {
-                                    if (outputFile != null && outputFileName.endsWith(".apk")) {
-                                        val targetDir =
-                                            rootProject.file("归档/v${verName}-${verCode}")
-                                        val targetDir2 = rootProject.file("release")
-                                        targetDir.mkdirs()
-                                        targetDir2.mkdirs()
-                                        println("path: ${outputFile.absolutePath}")
-                                        copy {
-                                            from(outputFile)
-                                            into(targetDir)
-                                        }
-                                        copy {
-                                            from(outputFile)
-                                            into(targetDir2)
-                                        }
-                                        copy {
-                                            from(rootProject.file("app/build/outputs/mapping/release/mapping.txt"))
-                                            into(targetDir)
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-                    }
-
-                }
-            }
         }
     }
 
@@ -138,8 +71,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    kotlinOptions.jvmTarget = "17"
 
     buildFeatures {
         compose = true
@@ -163,6 +94,14 @@ android {
         dex.useLegacyPackaging = true
     }
     lint.abortOnError = false
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+    arg("room.incremental", "true")
+    arg("room.expandProjection", "true")
+    arg("dagger.hilt.disableModulesHaveInstallInCheck", "true")
+    arg("Ktorfit_Errors", "1")
 }
 
 dependencies {
@@ -234,7 +173,9 @@ dependencies {
 //    }
     implementation(libs.timber)
 //    implementation(libs.happy.dns)
-    implementation(libs.channel)
+    implementation(libs.channel) {
+        exclude(group = "org.jetbrains.kotlin", module = "kotlin-android-extensions-runtime")
+    }
     implementation(libs.mmkv.static)
     implementation(libs.coil)
     implementation(libs.coil.video)
@@ -266,6 +207,8 @@ dependencies {
 
 //    implementation(libs.accompanist.webview)
     implementation(libs.android.material)
+    implementation(libs.compose.material.icons.core)
+    implementation(libs.compose.material.icons.extended)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
